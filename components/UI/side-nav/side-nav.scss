@@ -1,0 +1,60 @@
+.side-nav{
+    position:absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    min-height: 100vh;
+    padding: 50px;
+    z-index: 11;
+    color: white;
+    transform: translate3d(-100%,0,0);
+    transition: transform .4s ease-in-out;
+    &-active{
+        transform: translate3d(0,0,0);
+    }
+    &-close-btn{
+        position: absolute;
+        left: 290px;
+        top:0;
+        width: 50px;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: white;
+    }
+    &-divider{
+        width: 100%;
+        background: rgb(243, 234, 234);
+        height: 2px;
+        margin: 20px 0;
+    }
+    &-main{
+        width: 250px;
+    }
+    li{
+        // opacity: 0;
+        transition: opacity .4s ease-in-out;
+        padding: 10px;
+        a{
+            color: rgb(80,80,80);
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 2rem;
+            transition: color .2s ease-in-out;
+            &.active, &:hover{
+                font-weight: 500;
+                color: white;
+            }
+        }
+    }
+    //This is sass for loop never done this before so shoould look up some documentation 
+    @for $i from 0 through 20{
+        &-active li:nth-child(#{$i +1}){
+            transition-delay: 0.15s *$i;
+        }
+    }
+
+}

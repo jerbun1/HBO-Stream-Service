@@ -1,0 +1,102 @@
+.login-user{
+    background: rgb(26, 39, 103);
+    background: linear-gradient(312deg, rgba(26, 39, 103, 1) 0%,rgba(48, 20, 94, 1) 45%,rgba(0, 0, 0, 1) 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    &_top{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    &_logo{
+        background-size: 100% 100%;
+        height: 22px;
+        width: 129px;
+        background-image: url(/img/logo.svg);
+        transform: scale(.9);
+        margin-bottom: 1rem;
+    }
+    &_title{
+        color: white;
+        font-size: 3rem;
+        font-weight: 300;
+    }
+    &_links{
+        flex-direction: row;
+    }
+    &_links_user{
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+    }
+    &_links_main{
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+
+    }
+    &_form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    &_user-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &:nth-child(1){
+            margin-right: 3rem;
+        }
+    }
+    &_user-box:hover{
+        cursor: pointer;
+    }
+    &_user-img{
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        border: 3px solid rgb(255, 166, 0);
+        object-fit: cover;
+        object-position: center;
+    }
+    &_user-name{
+        color: white;
+    }
+    &_buttons{
+        margin-bottom: 2rem;
+    }
+    &_adult, &_child{
+        background: rgba(255, 255, 255, .2);
+        border: none;
+        border-radius: 20px;
+        height: 35px;
+        width:100px;
+        text-transform: uppercase;
+        font-size: .5rem;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        transition: opacity .3s ease-in-out;
+    }
+    &_adult{
+        opacity: .4;
+        margin-right: 1rem;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    &_child{
+        opacity: 1;
+    }
+   
+} 
