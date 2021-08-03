@@ -1,3 +1,6 @@
+import Image from 'next/image'
+
+
 const PosterView = (props) => {
     const loopComp = (comp, digit) => {
         let thumbnails = [];
@@ -13,7 +16,7 @@ const PosterView = (props) => {
 
                 {loopComp(
                     (<div className="posterview-list_thumbnail">
-                  <img  alt="Avengers Poster" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHh-X6NZ7WsTS-Luz8r-rWW3vBCXFaZhsC12DNB4n-PUy8sIon0S1JmE-_1np0Tzvthl4&usqp=CAU"/>
+                  <Image  alt="Avengers Poster" src="/public\img\Avengers.jpg" layout='fixed' width={240} height={360}/>
 
                         <div className="posterview-list_top-layer">
                         <i className="fa fa-play"/>

@@ -1,5 +1,6 @@
 import Head from 'next/head'
-// import Image from 'next/image'
+import Image from 'next/image'
+// import img from '../public/img/UiFace.jpg'
 export default function CreateUser() {
   return (
    <div>
@@ -12,7 +13,8 @@ export default function CreateUser() {
      </div>
 
       <div className="create-user_form">
-      <img alt="" className="create-user_user-img" src="https://uifaces.co/our-content/donated/n4Ngwvi7.jpg" />
+      <Image alt="UI Face" className="create-user_user-img" src='/public/img/UiFace.jpg' width={160} height={160} />
+
           <div className="create-user_input-group">
             <label>Name</label>
             <input type="text" className="create-user_inputText"/>

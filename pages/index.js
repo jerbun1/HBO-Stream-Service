@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Header from '../components/UI/Header/Header'
-// import Image from 'next/image'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
 
         <div className="login-user_form">
           <div className="login-user_user-box">
-            <img alt="" className="login-user_user-img" src="https://uifaces.co/our-content/donated/n4Ngwvi7.jpg" />
+            <Image alt="" className="login-user_user-img" src="/public\img\UiFace.jpg" width={125} height={125} />
 
             <div className="login-user_user-name">Bryan</div>
 

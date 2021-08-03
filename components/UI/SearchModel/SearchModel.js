@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const SearchModel = (props) => {
     const loopComp = (comp, digit) => {
         let thumbnails = [];
@@ -22,7 +24,7 @@ const SearchModel = (props) => {
 
                 {loopComp(
                     (<div className="search-model_thumbnail">
-                            <img alt="Rick and Morty Poster" src="https://images8.alphacoders.com/625/thumb-350-625910.png"/>
+                            <Image alt="Rick and Morty Poster" src="/public\img\RickandMorty.png" width={240}height={360}/>
                         <div className="search-model_top-layer">
                             <i className="fa fa-play"/>
                        </div>

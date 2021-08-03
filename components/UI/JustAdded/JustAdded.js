@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const JustAdded = (props) => {
     const loopComp = (comp, digit) => {
         let thumbnails = [];
@@ -13,7 +15,7 @@ const JustAdded = (props) => {
 
                 {loopComp(
                     (<div className="justadded-list_thumbnail">
-                  <img alt="BlackPanther Movie Poster" src="https://angeloueconomics.com/wp-content/uploads/2018/08/forbes-black-panther-economic-impact.jpg"/>
+                  <Image alt="BlackPanther Movie Poster" src="/public\img\BlackPanther.jpg" width={400} height={600}/>
                         <div className="justadded-list_top-layer">
                         <i className="fa fa-play"/>
 

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 const Account = (props) => {
     return (
         <div className="account">
@@ -21,24 +22,27 @@ const Account = (props) => {
             <div className="account_menu">
                 <ul className="account_main">
                     <li>
-                      
-                        <a href="/" className="active">My list</a>
-                        
-                       
+                    <Link href="/" className="active">
+                        My list
+                    </Link>
+
                     </li>
                 </ul>
                 <ul className="account_main">
                     <li>
-                      
-                            <a href="/">Account</a>
+                        <Link href="/" className="active">
+                            Account
+                        </Link>
 
-                   
+
 
                     </li>
                     <li>
-             
-                            <a href="/">Sign-Out</a>
-           
+                        <Link href="/" className="active">
+                            Sign-Out
+
+                        </Link>
+
                     </li>
                 </ul>
             </div>

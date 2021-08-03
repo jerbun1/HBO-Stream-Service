@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const ForYouList = (props) => {
     const loopComp = (comp, digit) => {
         let thumbnails = [];
@@ -13,7 +15,7 @@ const ForYouList = (props) => {
 
                 {loopComp(
                     (<div className="foryou-list_thumbnail">
-                       <img alt="Star Wars The Bad Batch" src="https://phantom-marca.unidadeditorial.es/5a750390f957d08f6a90ccb688c493b2/resize/1320/f/jpg/assets/multimedia/imagenes/2021/05/04/16201382336736.jpg"/>
+                       <Image alt="Star Wars The Bad Batch" src="/public\img\BadBatch.jpg" width={450} height={250}/>
 
                         <div className="foryou-list_top-layer">
                         <i className="fa fa-play"/>
