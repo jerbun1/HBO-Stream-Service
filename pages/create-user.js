@@ -13,7 +13,7 @@ export default function CreateUser() {
      </div>
 
       <div className="create-user_form">
-      <Image alt="UI Face" className="create-user_user-img" src='/public/img/UiFace.jpg' width={160} height={160} />
+      <Image alt="UI Face" className="create-user_user-img" src={require('/public/img/UiFace.jpg').default} width={160} height={160}/>
 
           <div className="create-user_input-group">
             <label>Name</label>

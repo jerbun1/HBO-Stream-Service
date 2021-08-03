@@ -15,7 +15,7 @@ const ForYouList = (props) => {
 
                 {loopComp(
                     (<div className="foryou-list_thumbnail">
-                       <Image alt="Star Wars The Bad Batch" src="/public\img\BadBatch.jpg" width={450} height={250}/>
+                       <Image alt="Star Wars The Bad Batch" src={require("/public/img/BadBatch.jpg").default} width={450} height={250}/>
 
                         <div className="foryou-list_top-layer">
                         <i className="fa fa-play"/>

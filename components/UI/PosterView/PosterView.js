@@ -16,7 +16,7 @@ const PosterView = (props) => {
 
                 {loopComp(
                     (<div className="posterview-list_thumbnail">
-                  <Image  alt="Avengers Poster" src="/public\img\Avengers.jpg" layout='fixed' width={240} height={360}/>
+                  <Image  alt="Avengers Poster" src={require("/public/img/Avengers.jpg").default} width={240} height={360}/>
 
                         <div className="posterview-list_top-layer">
                         <i className="fa fa-play"/>
