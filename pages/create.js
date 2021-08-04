@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-// import img from '../public/img/UiFace.jpg'
+import { useSateContext } from '../components/UI/HBOProvider';
+
 export default function CreateUser() {
+  const globalState = useSateContext();
+  console.log(globalState)
   return (
    <div>
      <div className="create-user">
@@ -17,7 +20,7 @@ export default function CreateUser() {
 
           <div className="create-user_input-group">
             <label>Name</label>
-            <input type="text" className="create-user_inputText"/>
+            <input value={globalState.user} onChange={globalState.createUserAction} type="text" className="create-user_inputText" />
             <div className="create-user_colors">
               <div className="create-user_color create-user_color--active"
               style={{background: 'rgb(2,0,36)',
