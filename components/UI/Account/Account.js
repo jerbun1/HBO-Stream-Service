@@ -25,7 +25,7 @@ const Account = (props) => {
                 </div>
             </div>
             <div className="account_menu">
-            <i class="fa fa-window-close" aria-hidden="true"></i>
+            <i className="fa fa-window-close" aria-hidden="true"></i>
 
                 <ul className="account_main">
                     <li>
