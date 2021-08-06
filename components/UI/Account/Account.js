@@ -15,7 +15,7 @@ const Account = (props) => {
                                     <i className="fas fa-play" />
                                 </div>
                                 <div className="account_watch_circle">
-                                <i class="fa fa-window-close" aria-hidden="true"></i>
+                                <i className="fa fa-window-close" aria-hidden="true"></i>
 
                                     
                                 </div>

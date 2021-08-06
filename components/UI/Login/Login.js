@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useSateContext } from '../HBOProvider'
+import { useStateContext } from '../HBOProvider'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import ls from 'local-storage'
 import { useMounted } from '../../Hooks/useMounted'
 const Login= () => {
-    const globalState = useSateContext();
+    const globalState = useStateContext();
     const router = useRouter();
     const [loadingUsers, setLoadingUsers] = useState(true)
     let users =ls('users')!== null ? ls('users') : [];

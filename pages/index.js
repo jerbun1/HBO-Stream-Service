@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Header from '../components/UI/Header/Header'
 import FeaturedMedia from '../components/UI/FeaturedMedia/FeaturedMedia'
 
-import authCheck from '../components/UI/AuthCheck'
+import AuthCheck from '../components/UI/AuthCheck'
 import MediaRow from '../components/UI/MediaRow/MediaRow'
 export default function Home() {
   const globalState = useStateContext();
@@ -16,10 +16,10 @@ export default function Home() {
   useEffect(()=>{
  
   }, [])
-  return authCheck(
+  return AuthCheck(
     <MainLayout>
       <FeaturedMedia />
-      <MediaRow title="Movies" type="small-v"/>
+      <MediaRow title="Movies" type="large-v"/>
       <MediaRow title="Series" type="small-h"/>
       <MediaRow title="Action" type="small-v"/>
       <MediaRow title="Adventure" type="small-h"/>

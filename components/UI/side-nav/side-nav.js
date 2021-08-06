@@ -5,7 +5,7 @@ const SideNav = (props) => {
     return (
         <div className={`side-nav ${globalState.sideNavOpen ? "side-nav-active":''}`}>
             <div className="side-nav_close-btn" onClick={()=>globalState.setSideNavOpenAction(false)}>
-            <i class="fa fa-window-close" aria-hidden="true"></i>
+            <i className="fa fa-window-close" aria-hidden="true"></i>
             </div>
             <ul className="side-nav-main">
                 <li href="/" className="active">

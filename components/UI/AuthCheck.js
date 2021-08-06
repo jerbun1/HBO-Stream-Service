@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import ls from "local-storage";
 import { useMounted } from "../Hooks/useMounted";
 
-const authCheck = (component) => {
+const AuthCheck = (component) => {
     //Check if user is logged in
     const [userLoggedIn, setUserLoggedIn] = useState(false);
     const router = useRouter();
@@ -36,4 +36,4 @@ const authCheck = (component) => {
     return component
 }
 
-export default authCheck
+export default AuthCheck

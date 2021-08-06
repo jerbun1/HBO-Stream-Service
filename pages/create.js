@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useSateContext } from '../components/UI/HBOProvider';
+import { useStateContext } from '../components/UI/HBOProvider';
 import ls from 'local-storage'
 import {v4} from 'uuid'
 import Router from 'next/dist/next-server/server/router';
 import { useRouter } from 'next/router';
 export default function CreateUser() {
-  const globalState = useSateContext();
+  const globalState = useStateContext();
   const router = useRouter();
 
   const saveUser = ()=>{

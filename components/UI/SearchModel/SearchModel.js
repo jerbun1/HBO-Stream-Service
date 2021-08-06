@@ -15,7 +15,7 @@ const SearchModel = (props) => {
             <div className="search-model_input-group">
                 <input className="search-model_input" type="text" placeholder="Search for a Title of a Movie" value="" />
                 <div className="search-model_close-btn" onClick={()=>globalState.setSearchOpenAction(false)}>
-                <i class="fa fa-window-close" aria-hidden="true"></i>
+                <i className="fa fa-window-close" aria-hidden="true"></i>
                 </div>
             </div>
             <div className="search-model_title">

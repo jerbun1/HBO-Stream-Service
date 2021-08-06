@@ -17,45 +17,6 @@
             display: none;
         }
     }
-    &.large-v{
-        .media-row_thumbnail{
-            width: 400px;
-            height: 600px;
-       
-            img{   
-                width: 400px;
-                height: 600px;
-           
-            }
-    
-        }
-    }
-    &.small-v{
-        .media-row_thumbnail{
-            width: 240px;
-            height: 360px;
-       
-            img{   
-                width: 240px;
-                height: 360px;
-           
-            }
-    
-        }
-    }
-    &.small-h{
-        .media-row_thumbnail{
-            width: 450px;
-            height: 253px;
-       
-            Image{   
-                width: 450px;
-                height: 253px;
-           
-            }
-    
-        }
-    }
     &_thumbnail{
         position: relative;
         margin-right: 10px;
@@ -67,6 +28,7 @@
         }
 
     }
+  
     &_top-layer{
         background: rgb(94,255,245);
         background: linear-gradient(328deg, rgba(94,158,255,1) 0%,rgba(119,30,135,1) 100%,rgba(60,38,184,1) 100%,rgba(0,0,0,1) 100%);
@@ -94,6 +56,98 @@
             transform: translate3d(0,100px,0);
             opacity: 0;
             transition: all .3s eas-in-out .2s;
+        }
+    }
+    .media-row_thumbnail-skeleton-img{
+        background: rgb(19,19,19);
+        margin: 10px 0px;
+        position: relative;
+        overflow: hidden;
+    }
+    .media-row_thumbnail-skeleton-img::before{
+        position: absolute;
+        content: "";
+        top:0;
+        bottom:0;
+        width: 100%;
+        background: rgba(255,255,255,0.082);
+        height: 100%;
+        transform:skew(5deg);
+        animation:shine infinite 1.5s ease-in-out;
+        filter: blur(100px);
+    }
+    // This Creates a shine like animation on the element simulates loading 
+    @keyframes shine{
+        from{
+            transform: skew(45deg) translateX(-200px);
+        }
+
+        to{
+            transform: skew(45deg) translateX(300px);
+        }
+    }
+
+    &.large-v{
+        .media-row_thumbnail{
+            width: 400px;
+            height: 600px;
+       
+            img{   
+                width: 400px;
+                height: 600px;
+            }
+        }
+        .media-row_thumbnail-skeleton{
+            width: 400px;
+            height: 400px;
+            margin-right: 10px;
+        }
+        .media-row_thumbnail-skeleton-img{
+            width: 400px;
+            height: 400px;
+        }
+    }
+    &.small-v{
+        .media-row_thumbnail{
+            width: 240px;
+            height: 360px;
+       
+            img{   
+                width: 240px;
+                height: 360px;
+            }
+        }
+           .media-row_thumbnail-skeleton{
+            width: 240px;
+            height: 360px;
+            margin-right: 10px;
+        }
+        .media-row_thumbnail-skeleton-img{
+            width: 240px;
+            height: 360px;
+        }
+    }
+
+    &.small-h{
+        .media-row_thumbnail{
+            width: 450px;
+            height: 253px;
+       
+            Image{   
+                width: 450px;
+                height: 253px;
+           
+            }
+    
+        }
+        .media-row_thumbnail-skeleton{
+            width: 450px;
+            height: 253px;
+            margin-right: 10px;
+        }
+        .media-row_thumbnail-skeleton-img{
+            width: 450px;
+            height: 253px;
         }
     }
 }
