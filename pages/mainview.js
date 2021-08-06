@@ -8,14 +8,12 @@ import JustAdded from '../components/UI/JustAdded/JustAdded'
 import PosterView from '../components/UI/PosterView/PosterView'
 export default function CreateUser() {
   return (
-<MainLayout>
-<Header/>
-    <FeaturedMedia/>
-    <ForYouList />
-    <JustAdded/>
-    <PosterView/>
-  
-  
-</MainLayout>
+    <MainLayout>
+      <Header />
+      <FeaturedMedia />
+      <ForYouList />
+      <JustAdded />
+      <PosterView />
+    </MainLayout>
   )
 }

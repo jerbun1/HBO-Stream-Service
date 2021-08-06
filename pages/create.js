@@ -1,10 +1,48 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useSateContext } from '../components/UI/HBOProvider';
-
+import ls from 'local-storage'
+import {v4} from 'uuid'
+import Router from 'next/dist/next-server/server/router';
+import { useRouter } from 'next/router';
 export default function CreateUser() {
   const globalState = useSateContext();
+  const router = useRouter();
+
+  const saveUser = ()=>{
+    let users = [],
+    user;
+
+    if(ls('users') < 1 ){
+      user = {
+        id: v4(),
+        user:globalState.user,
+        myListID: []
+      }
+      users.push(user)
+      ls('users', users)
+      console.log('users:', users)
+      console.log('lsusers:', ls('users'))
+      router.push('login')
+
+    } else {
+      users = ls('users')
+      user = {
+        id: v4(),
+        user:globalState.user,
+        myListID: []
+      }
+      users.push(user)
+      ls('users', users)
+      console.log('users:', users)
+      console.log('lsusers:', ls('users'))
+      router.push('login')
+    }
+  }
   console.log(globalState)
+  const loginUser = () =>{
+    router.push('login');
+  }
   return (
    <div>
      <div className="create-user">
@@ -50,8 +88,8 @@ export default function CreateUser() {
         
       </div>
       <div className="create-user_buttons">
-        <button className="create-user_save">Save</button>
-        <button className="create-user_cancel">Cancel</button>
+        <button className="create-user_save" onClick={saveUser}>Save</button>
+        <button className="create-user_cancel" onClick={loginUser}>Cancel</button>
 
       </div>
      </div>

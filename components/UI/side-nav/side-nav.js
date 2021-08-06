@@ -1,9 +1,11 @@
-const SideNav = (props) => {
-    return (
-        <div className="side-nav ">
-            <div className="side-nave_close-btn">
-                <i className="fas fa-times" />
+import { useStateContext } from "../HBOProvider";
 
+const SideNav = (props) => {
+    const globalState = useStateContext();
+    return (
+        <div className={`side-nav ${globalState.sideNavOpen ? "side-nav-active":''}`}>
+            <div className="side-nav_close-btn" onClick={()=>globalState.setSideNavOpenAction(false)}>
+            <i class="fa fa-window-close" aria-hidden="true"></i>
             </div>
             <ul className="side-nav-main">
                 <li href="/" className="active">

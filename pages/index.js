@@ -1,23 +1,32 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { useEffect } from 'react'
-import { useSateContext } from '../components/UI/HBOProvider'
+import { useStateContext } from '../components/UI/HBOProvider'
 import { useRouter } from 'next/router'
 import Login from '../components/UI/Login/Login'
+import MainLayout from '../components/layouts/MainLayout'
+import Image from 'next/image'
+import Header from '../components/UI/Header/Header'
+import FeaturedMedia from '../components/UI/FeaturedMedia/FeaturedMedia'
 
+import authCheck from '../components/UI/AuthCheck'
+import MediaRow from '../components/UI/MediaRow/MediaRow'
 export default function Home() {
-  const globalState = useSateContext();
+  const globalState = useStateContext();
   const router = useRouter();
   useEffect(()=>{
-    const loggedIn = false
-    if(loggedIn == false){
-      router.push('/create')
-
-    }
+ 
   }, [])
-  return (
-    <div>
-      <Login/>
-    </div>
+  return authCheck(
+    <MainLayout>
+      <FeaturedMedia />
+      <MediaRow title="Movies" type="small-v"/>
+      <MediaRow title="Series" type="small-h"/>
+      <MediaRow title="Action" type="small-v"/>
+      <MediaRow title="Adventure" type="small-h"/>
+      <MediaRow title="Horror" type="small-v"/>
+
+
+     
+    </MainLayout>
   )
 }
