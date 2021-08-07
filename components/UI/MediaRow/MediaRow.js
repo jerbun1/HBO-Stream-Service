@@ -36,7 +36,7 @@ const MediaRow = (props) => {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : movies.map((movie) => {
-          return <Thumbnail movieData={movie} />;
+          return <Thumbnail movieData={movie} key={props.movie} />;
         });
   };
   return (
@@ -55,7 +55,7 @@ const MediaRow = (props) => {
 
 const Thumbnail = (props) => {
   return (
-    <div className="media-row_thumbnail"key={props.movieData.poster_path}>
+    <div className="media-row_thumbnail">
       <Image
         alt="Star Wars Bad Batch"
         src={`https://image.tmdb.org/t/p/original${props.movieData.poster_path}`}
