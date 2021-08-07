@@ -60,6 +60,7 @@ const Thumbnail = (props) => {
         alt="Star Wars Bad Batch"
         src={`https://image.tmdb.org/t/p/original${props.movieData.poster_path}`}
         layout="fill"
+        key={props.movieData.poster_path}
       />
       <div className="media-row_top-layer">
         <i className="fa fa-play" />
