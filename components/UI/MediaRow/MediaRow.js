@@ -56,7 +56,7 @@ const MediaRow = (props) => {
 const Thumbnail = (props) => {
   return (
     <div className="media-row_thumbnail">
-      <img
+      <Image
         alt="Star Wars Bad Batch"
         src={`https://image.tmdb.org/t/p/original${props.movieData.poster_path}`}
         layout="fill"
