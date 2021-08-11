@@ -27,7 +27,7 @@ const CastInfo = (props) => {
       if(loadingData != true){
         return credits.cast.map((item) => {
             return (
-              <ul className="cast-info_crew">
+              <ul className="cast-info_crew" key={item}>
                 <li>{item.character}</li>
                 <li>{item.name}</li>
               </ul>
