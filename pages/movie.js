@@ -11,7 +11,7 @@ export default function Home() {
         <MainLayout>
             <Header />
             <FeaturedMedia />
-            <MediaRow title="More Like This" type="smal-v"/>
+            <MediaRow title="More Like This" type="small-v"/>
             <CastInfo />
         </MainLayout>
     )

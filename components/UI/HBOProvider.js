@@ -25,7 +25,7 @@ export function HBOProvider({ children }) {
                 sideNavOpen, setSideNavOpenAction,
                 accountModalOpen, setAccountModalOpenAction,
                 searchOpen, setSearchOpenAction
-            }}>
+            }} >
             {children}
         </StateContext.Provider>
     )

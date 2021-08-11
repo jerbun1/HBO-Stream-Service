@@ -114,23 +114,23 @@
   }
   &.small-v {
     .media-row_thumbnail {
-      width: 450px;
-      height: 310px;
+      width: 340px;
+      height: 360px;
 
       img {
-        width: 450px;
-        height: 310px;
+        width: 340px;
+        height: 360px;
         object-fit: cover;
       }
     }
     .media-row_thumbnail-skeleton {
-      width: 450px;
-      height: 310px;
+      width: 340px;
+      height: 360px;
       margin-right: 10px;
     }
     .media-row_thumbnail-skeleton-img {
-      width: 450px;
-      height: 310px;
+      width: 340px;
+      height: 360px;
     }
   }
 

@@ -11,9 +11,9 @@ const SearchModel = (props) => {
         return thumbnails;
     }
     return (
-        <div className={`search-model ${globalState.searchOpen ? 'search-model-active' : ''}`} >
+        <div className={`search-model ${globalState.searchOpen ? 'search-model-active' : ''}`} key={props} >
             <div className="search-model_input-group">
-                <input className="search-model_input" type="text" placeholder="Search for a Title of a Movie" value="" />
+                <input className="search-model_input" type="text" placeholder="Search for a Title of a Movie" />
                 <div className="search-model_close-btn" onClick={()=>globalState.setSearchOpenAction(false)}>
                 <i className="fa fa-window-close" aria-hidden="true"></i>
                 </div>
@@ -25,7 +25,7 @@ const SearchModel = (props) => {
             <div className="search-model_thumbnails">
 
                 {loopComp(
-                    (<div className="search-model_thumbnail">
+                    (<div className="search-model_thumbnail" >
                             <Image alt="Rick and Morty Poster" src={require("/public/img/RickandMorty.png").default} width={240}height={360}/>
                         <div className="search-model_top-layer">
                             <i className="fa fa-play"/>

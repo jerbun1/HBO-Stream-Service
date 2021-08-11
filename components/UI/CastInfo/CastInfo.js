@@ -1,97 +1,71 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 const CastInfo = (props) => {
-    return (
-        <div className="cast-info">
-            <div className="cast-info_group-title">
-                Cast & Crew 
-            </div>
-            <div className="cast-info_list">
-                <ul className="cast-info_crew">
-                    <li>
-                        Tony Stark
-                    </li>
-                    <li>
-                        Robert Downey Jr
-                    </li>
-                </ul>
-                <ul className="cast-info_crew">
-                    <li>
-                        Steve Rogers
-                    </li>
-                    <li>
-                        Chris Evans 
-                    </li>
-                </ul>
-                <ul className="cast-info_crew">
-                    <li>
-                        Thor
-                    </li>
-                    <li>
-                        Chris Hemsworth
-                    </li>
-                </ul>
-                <ul className="cast-info_crew">
-                    <li>
-                        HULK
-                    </li>
-                    <li>
-                        Mark Rufalo
-                    </li>
-                </ul>
-                <ul className="cast-info_crew">
-                    <li>
-                        Black Widow
-                    </li>
-                    <li>
-                        Scarlet Johansson 
-                    </li>
-                </ul>
-                <ul className="cast-info_crew">
-                    <li>
-                        Hawk-Eye
-                    </li>
-                    <li>
-                        Jeremy Renner
-                    </li>
-                </ul>
-                <ul className="cast-info_crew">
-                    <li>
-                        Nick Fury 
-                    </li>
-                    <li>
-                        Samuel L Jackson 
-                    </li>
-                </ul>
-            </div>
-            <div className="cast-info_group-title">
-                Director 
-            </div>
-            <div className="cast-info_list">
-                <ul className="cast-info_crew">
-                    <li>
-                        Tony Stark
-                    </li>
-                    <li>
-                        Robert Downey Jr
-                    </li>
-                </ul>
-                <ul className="cast-info_crew">
-                    <li>
-                        Steve Rogers
-                    </li>
-                    <li>
-                        Chris Evans 
-                    </li>
-                </ul>
-                
-            </div>
-            
-        </div>
-        
-        
-        
-        
-    )
+  const [loadingData, setLoadingData] = useState(true);
+  const [credits, setCreditsData] = useState([]);
 
-}
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${props.mediaId}/credits?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
+      )
+      .then((res) => {
+        setCreditsData(res.data);
+        //Handles successful response
+        setLoadingData(false);
+        console.log("good response for cast and crew");
+        console.log(res);
+      })
+      .catch((err) => {
+        //Handles an error
+        console.log("error response for cast and crew");
+      });
+  }, []);
 
- export default CastInfo;
+  const showCast = () => {
+      if(loadingData != true){
+        return credits.cast.map((item) => {
+            return (
+              <ul className="cast-info_crew">
+                <li>{item.character}</li>
+                <li>{item.name}</li>
+              </ul>
+              //   console.log(item.name)
+            );
+          });
+      }else{
+          return(<div>Loading cast</div>)
+      }
+    
+  };
+
+  const showCrew = () => {
+      if(loadingData != true){
+        return credits.crew.map((item) => {
+            return (
+              <ul className="cast-info_crew">
+                <li>{item.job}</li>
+                <li>{item.original_name}</li>
+              </ul>
+              //   console.log(item.name)
+            );
+          });
+      }else{
+          return(<div>Loading Crew </div>)
+      }
+   
+  };
+  return (
+    <div className="cast-info">
+      <div className="cast-info_group-title">Cast</div>
+      <div className="cast-info_list">{showCast()}</div>
+      <div className="cast-info_group-title">Crew</div>
+      <div className="cast-info_list">
+      {showCrew()}
+      </div>
+    </div>
+  );
+};
+
+export default CastInfo;

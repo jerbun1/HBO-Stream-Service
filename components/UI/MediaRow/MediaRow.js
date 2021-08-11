@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { shuffleArray } from "../../Utilities";
+import Link from 'next/link'
 
 const MediaRow = (props) => {
   const [loadingData, setLoadingData] = useState(true);
@@ -17,6 +18,7 @@ const MediaRow = (props) => {
         //Handles successful response
         setLoadingData(false);
         console.log("good response for " + props.title);
+        console.log(res)
       })
       .catch((err) => {
         //Handles an error
@@ -32,33 +34,47 @@ const MediaRow = (props) => {
     return thumbnails;
   };
   //Should Simulate loading up an image for the thumbnails
-  const showThumbNails = () => {
+  const showThumbNails = (type) => {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : movies.map((movie) => {
-          return <Thumbnail movieData={movie} key={props.movie} />;
+          return <Thumbnail movieData={movie} type={type} key={props.movie} />;
         });
   };
+
+
   return (
     <div className={`media-row ${props.type}`}>
       <h3 className="media-row_title">{props.title}</h3>
       <div className="media-row_thumbnails">
-        {showThumbNails()}
-        {/* {loopComp(
-                    (<Thumbnail />), 10
-
-                )} */}
+        {showThumbNails(props.type)}
+      
       </div>
     </div>
   );
 };
 
 const Thumbnail = (props) => {
+  const thumbSize= (type) =>{
+    if(type == 'large-v'){
+      return '500';
+    }
+    if(type == 'small-v'){
+      return '400';
+    }
+    if(type == 'small-h'){
+      return '185';
+    }
+  }
+    
   return (
+    <Link href={`/movie/${props.movieData.id}`}>
+    <a>
     <div className="media-row_thumbnail">
-      <Image
-        alt="Star Wars Bad Batch"
-        src={`https://image.tmdb.org/t/p/original${props.movieData.poster_path}`}
+      <img
+        alt=""
+        className='poster-img'
+        src={`https://image.tmdb.org/t/p/w${thumbSize(props.type)}/${props.movieData.poster_path}`}
         layout="fill"
         key={props.movieData.poster_path}
       />
@@ -66,12 +82,16 @@ const Thumbnail = (props) => {
         <i className="fa fa-play" />
       </div>
     </div>
+    </a>
+    
+    </Link>
+    
   );
 };
 
-const Skeleton = () => {
+const Skeleton = (props) => {
   return (
-    <div className="media-row_thumbnail-skeleton">
+    <div className="media-row_thumbnail-skeleton" key={props}>
       <div className="media-row_thumbnail-skeleton-img"></div>
     </div>
   );
