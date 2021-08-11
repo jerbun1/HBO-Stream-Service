@@ -1,3 +1,4 @@
+import Image from "next/dist/client/image"
 const FeaturedMedia = (props) => {
     const clickedPlay=()=>{
         router,push(props.linkUrl)
@@ -10,7 +11,7 @@ const FeaturedMedia = (props) => {
              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>)
         }else{
             return(
-                <img src={props.mediaUrl} className="featured-media_img"/>
+                <Image src={props.mediaUrl} className="featured-media_img" layout='fill'/>
             )
         }
     }

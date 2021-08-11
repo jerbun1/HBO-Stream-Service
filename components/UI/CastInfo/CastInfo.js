@@ -44,7 +44,7 @@ const CastInfo = (props) => {
       if(loadingData != true){
         return credits.crew.map((item) => {
             return (
-              <ul className="cast-info_crew">
+              <ul className="cast-info_crew" key={item}>
                 <li>{item.job}</li>
                 <li>{item.original_name}</li>
               </ul>

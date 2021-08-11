@@ -71,7 +71,7 @@ const Thumbnail = (props) => {
     <Link href={`/movie/${props.movieData.id}`}>
     <a>
     <div className="media-row_thumbnail">
-      <img
+      <Image
         alt=""
         className='poster-img'
         src={`https://image.tmdb.org/t/p/w${thumbSize(props.type)}/${props.movieData.poster_path}`}
