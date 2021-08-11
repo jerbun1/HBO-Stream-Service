@@ -6,9 +6,10 @@ const CastInfo = (props) => {
   const [credits, setCreditsData] = useState([]);
 
   useEffect(() => {
+    console.log(props)
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${props.mediaId}/credits?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
+        `https://api.themoviedb.org/3/${props.mediaType === 'movie' ? 'movie' : 'tv'}/${props.mediaId}/credits?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
       )
       .then((res) => {
         setCreditsData(res.data);
@@ -22,6 +23,8 @@ const CastInfo = (props) => {
         console.log("error response for cast and crew");
       });
   }, []);
+
+  // https://api.themoviedb.org/3/movie/497698/credits?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US&language=en-US
 
   const showCast = () => {
       if(loadingData != true){
