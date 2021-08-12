@@ -13,7 +13,7 @@ import AuthCheck from "../../components/UI/AuthCheck";
 export default function SingleMediaPage(props) {
 
   const router = useRouter(); //use to get the route of the page using a hook
-  const [mediaData, setMediaData] = useState(false); //used to get the state for the movie 
+  const [mediaData, setMediaData] = useState(false); //used to get the movie data from API  
   console.log(props);
   // API call to get the information of selection 
   // useEffect(() => {

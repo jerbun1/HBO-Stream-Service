@@ -1,3 +1,4 @@
+//IMPORTS
 import React, { useContext, useState } from 'react'
 
 
@@ -13,7 +14,7 @@ export function HBOProvider({ children }) {
         setUser(e.target.value)
         console.log(user)
     }
-
+    //Some React Hooks 
     const [accountModalOpen, setAccountModalOpenAction] = useState(false);
     const [sideNavOpen, setSideNavOpenAction] = useState(false)
     const [searchOpen, setSearchOpenAction] = useState(false);

@@ -18,7 +18,7 @@ export default function Home() {
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
-        mediaUrl="https://www.youtube.com/embed/TcMBFSGVi1c?&autoplay=1&loop=1https://www.youtube.com/embed/TcMBFSGVi1c?&autoplay=1&loop=1"
+        mediaUrl="https://www.youtube.com/embed/TcMBFSGVi1c?&autoplay=1&loop=1"
         title="Avengers Endgame"
         linkUrl="/movies/299534"
         type="front"
@@ -32,7 +32,7 @@ export default function Home() {
           title="Movies"
           type="large-v"
           mediaType="movie"
-          endpoint="discover/movie?sort_by=popularity.desc&primary_release_year=2021"
+          endpoint="discover/movie?sort_by=popularity.desc"
         />
       </LazyLoad>
       <LazyLoad
@@ -43,7 +43,7 @@ export default function Home() {
           title="Series"
           type="small-v"
           mediaType="tv"
-          endpoint="discover/tv?sort_by=popularity.desc"
+          endpoint="discover/tv?sort_by=popularity.desc&primary_release_year=2021"
         />
       </LazyLoad>
       <LazyLoad

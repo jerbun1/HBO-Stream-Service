@@ -13,7 +13,7 @@ const SearchModel = (props) => {
     return (
         <div className={`search-model ${globalState.searchOpen ? 'search-model-active' : ''}`} key={props} >
             <div className="search-model_input-group">
-                <input className="search-model_input" type="text" placeholder="Search for a Title of a Movie" />
+                <input className="search-model_input" type="text" placeholder="Search for a Movie or Show" />
                 <div className="search-model_close-btn" onClick={()=>globalState.setSearchOpenAction(false)}>
                 <i className="fa fa-window-close" aria-hidden="true"></i>
                 </div>

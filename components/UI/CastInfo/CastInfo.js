@@ -1,15 +1,25 @@
+//IMPORTS
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+// Cast Info Component
 const CastInfo = (props) => {
-  const [loadingData, setLoadingData] = useState(true);
-  const [credits, setCreditsData] = useState([]);
+  //React Hooks
+  const [loadingData, setLoadingData] = useState(true); //used for loading/getting the data from the API
+  const [credits, setCreditsData] = useState([]); //used to hold the array of information from the cast/crew
 
+  // useEffect: you tell React that your component needs to do something after render.
+  // React will remember the function you passed (we’ll refer to it as our “effect”),
+  // and call it later after performing the DOM updates.
   useEffect(() => {
-    console.log(props)
+    //API call tothemoviedb database
     axios
       .get(
-        `https://api.themoviedb.org/3/${props.mediaType === 'movie' ? 'movie' : 'tv'}/${props.mediaId}/credits?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
+        `https://api.themoviedb.org/3/${
+          props.mediaType === "movie" ? "movie" : "tv"
+        }/${
+          props.mediaId
+        }/credits?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
       )
       .then((res) => {
         setCreditsData(res.data);
@@ -24,49 +34,52 @@ const CastInfo = (props) => {
       });
   }, []);
 
-  // https://api.themoviedb.org/3/movie/497698/credits?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US&language=en-US
-
+  //Function to show the cast of the movie/tv show
   const showCast = () => {
-      if(loadingData != true){
-        return credits.cast.map((item) => {
-            return (
-              <ul className="cast-info_crew" key={item}>
-                <li>{item.character}</li>
-                <li>{item.name}</li>
-              </ul>
-              //   console.log(item.name)
-            );
-          });
-      }else{
-          return(<div>Loading cast</div>)
-      }
-    
+    //If the data is loaded
+    if (loadingData != true) {
+      //return a list of cast members using the hook
+      return credits.cast.map((item) => {
+        return (
+          <ul className="cast-info_crew" key={item}>
+            <li>{item.character}</li>
+            <li>{item.name}</li>
+          </ul>
+        );
+      });
+    } else {
+      //return a message signifying loading data or can use a skeleton
+      return <div>Loading cast</div>;
+    }
   };
+
+  //Function to show the crew of the movie/tv show
 
   const showCrew = () => {
-      if(loadingData != true){
-        return credits.crew.map((item) => {
-            return (
-              <ul className="cast-info_crew" key={item}>
-                <li>{item.job}</li>
-                <li>{item.original_name}</li>
-              </ul>
-              //   console.log(item.name)
-            );
-          });
-      }else{
-          return(<div>Loading Crew </div>)
-      }
-   
+    //If the data is loaded
+    if (loadingData != true) {
+      //return a list of cast members using the hook
+      return credits.crew.map((item) => {
+        return (
+          <ul className="cast-info_crew" key={item}>
+            <li>{item.job}</li>
+            <li>{item.original_name}</li>
+          </ul>
+        );
+      });
+    } else {
+            //return a message signifying loading data or can use a skeleton
+
+      return <div>Loading Crew </div>;
+    }
   };
+  //Displays the Crew and Cast info
   return (
     <div className="cast-info">
       <div className="cast-info_group-title">Cast</div>
       <div className="cast-info_list">{showCast()}</div>
       <div className="cast-info_group-title">Crew</div>
-      <div className="cast-info_list">
-      {showCrew()}
-      </div>
+      <div className="cast-info_list">{showCrew()}</div>
     </div>
   );
 };

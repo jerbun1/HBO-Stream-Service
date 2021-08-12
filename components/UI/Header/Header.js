@@ -4,7 +4,9 @@ import Image from "next/image";
 import { useStateContext } from "../HBOProvider";
 import SideNav from "../side-nav/side-nav";
 import Link from "next/link";
-
+import AuthCheck from "../AuthCheck";
+import create from '../../../pages/create'
+import ls from 'local-storage'
 const Header = (props) => {
   const globalState = useStateContext();
 
@@ -51,7 +53,7 @@ const Header = (props) => {
           border="3px solid rgb(230, 209, 250)"
         />
 
-        <div className="top-header_user-name">Bryan</div>
+        <div className="top-header_user-name">{globalState.user}</div>
       </div>
       <SearchModel />
       <Account />

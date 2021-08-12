@@ -1,5 +1,6 @@
 
 import Header from '../UI/Header/Header'
+//This is the main layout of a index page that will display whatever is in the component
 
 const MainLayout = (props) => {
   return(<div style={{

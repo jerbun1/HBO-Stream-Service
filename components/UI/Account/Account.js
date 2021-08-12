@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { useStateContext } from "../HBOProvider";
+//This is the Account Component that will display some info to the user 
 
 const Account = (props) => {
+    //Variable used for some of the Reach Hooks 
     const globalState = useStateContext();
     return (
         <div className={`account ${globalState.accountModalOpen ? "account-active":''}`}>
@@ -25,7 +27,6 @@ const Account = (props) => {
                 </div>
             </div>
             <div className="account_menu">
-            <i className="fa fa-window-close" aria-hidden="true"></i>
 
                 <ul className="account_main">
                     <li>
@@ -45,7 +46,7 @@ const Account = (props) => {
 
                     </li>
                     <li>
-                        <Link href="/" className="active">
+                        <Link href="../login" className="active">
                             Sign-Out
 
                         </Link>

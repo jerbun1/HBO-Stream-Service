@@ -45,10 +45,7 @@ const Login= () => {
                     <span className="login-user_title">
                         Who is watching?
                     </span>
-                    <div className="login-user_links">
-                        <a className="login-user_links_main" href="mainview">Main Menu</a>
-                    </div>
-
+                    
                 </div>
                 <div className="login-user_form">
                    {hasMounted ? showUsers() : showUsers()}

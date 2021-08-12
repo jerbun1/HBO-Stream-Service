@@ -9,6 +9,7 @@ const AuthCheck = (component) => {
     const router = useRouter();
     const { hasMounted } = useMounted();
     let activeUID = ls('activeUID');
+    // let activeUserName = ls('user');
     let users = ls('users') != null ? ls('users') : [];
 
     useEffect(() => {

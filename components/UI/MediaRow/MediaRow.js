@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/dist/client/image"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { shuffleArray } from "../../Utilities";

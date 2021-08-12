@@ -1,9 +1,13 @@
 import Image from "next/dist/client/image"
 const FeaturedMedia = (props) => {
+
+    //ClickedPlay function to send the user to the movie info page
     const clickedPlay=()=>{
-        router,push(props.linkUrl)
+        router.push(props.linkUrl)
     }
+    //Function to show some type of media either a video trailler or a  movie poster/ backdrop 
     const showMedia = () =>{
+        //if props are a certain type display the video else display the movie poster/back drop 
         if(props.type == 'front'){
             return ( <iframe className="featured-media_video" width="100%" height="100%" 
             src={props.mediaUrl}
@@ -11,6 +15,7 @@ const FeaturedMedia = (props) => {
              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>)
         }else{
             return(
+                //Return image component with API movie poster img/ info 
                 <Image src={props.mediaUrl} className="featured-media_img" layout='fill'/>
             )
         }

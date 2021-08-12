@@ -70,6 +70,10 @@
             transform: scale(1.5)
         }
     }
+    &_bg{
+        background:
+        "linear-gradient(133deg, rgba(2,0,36,1) 0%, rgba(36,4,74,1) 0%, rgba(77,9,121,1) 49%, rgba(164,139,38,1) 100%)";
+    }
     &_user-img{
         width: 125px;
         height: 125px;
@@ -111,4 +115,5 @@
         opacity: 1;
       
     }
+
 } 
