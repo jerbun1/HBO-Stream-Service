@@ -27,7 +27,7 @@
       position: relative;
       transition: all .2s ease-in-out;
       &.active, &:hover{
-         background: linear-gradient(328deg, #5e9eff 0%, #771e87 100%, black 100%);
+         background: linear-gradient(158deg, rgba(199,26,26,1) 20%, rgba(32,31,214,1) 77%);
          color: white;
          transform: scale(1.3);
       }

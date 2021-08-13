@@ -20,7 +20,7 @@ export default function CreateUser() {
     if (ls("users") < 1) {
       user = {
         id: v4(),
-        user: globalState.user,
+        name: globalState.user,
         myListID: [],
       };
       users.push(user);
@@ -32,7 +32,7 @@ export default function CreateUser() {
       users = ls("users");
       user = {
         id: v4(),
-        user: globalState.user,
+        name: globalState.user,
         myListID: [],
       };
       users.push(user);

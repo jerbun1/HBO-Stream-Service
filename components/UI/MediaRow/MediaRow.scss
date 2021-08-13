@@ -21,7 +21,7 @@
     margin-right: 10px;
     object-fit: cover;
     object-position: center;
-    img {
+    Image {
       object-fit: contain;
       object-position: center;
     }
@@ -62,13 +62,13 @@
       transition: all 0.3s eas-in-out 0.2s;
     }
   }
-  .media-row_thumbnail-skeleton-img {
+  .media-row_thumbnail-skeleton-Image {
     background: rgb(19, 19, 19);
     margin: 10px 0px;
     position: relative;
     overflow: hidden;
   }
-  .media-row_thumbnail-skeleton-img::before {
+  .media-row_thumbnail-skeleton-Image::before {
     position: absolute;
     content: "";
     top: 0;
@@ -96,7 +96,7 @@
       width: 500px;
       height: 450px;
 
-      .poster-img{
+      .poster-Image{
         width: 500px;
         height: 450px;
         object-fit: fill;
@@ -107,7 +107,7 @@
       height: 450px;
       margin-right: 10px;
     }
-    .media-row_thumbnail-skeleton-img {
+    .media-row_thumbnail-skeleton-Image {
       width: 500px;
       height: 450px;
     }
@@ -117,7 +117,7 @@
       width: 450px;
       height: 310px;
 
-      img {
+      Image {
         width: 450px;
         height: 310px;
         object-fit: cover;
@@ -128,7 +128,7 @@
       height: 310px;
       margin-right: 10px;
     }
-    .media-row_thumbnail-skeleton-img {
+    .media-row_thumbnail-skeleton-Image {
       width: 450px;
       height: 310px;
     }
@@ -139,7 +139,7 @@
       width: 350px;
       height: 280px;
 
-      img {
+      Image {
         width: 350px;
         height: 280px;
         object-fit: cover;
@@ -150,7 +150,7 @@
       height: 280px;
       margin-right: 10px;
     }
-    .media-row_thumbnail-skeleton-img {
+    .media-row_thumbnail-skeleton-Image {
       width: 350px;
       height: 280px;
     }

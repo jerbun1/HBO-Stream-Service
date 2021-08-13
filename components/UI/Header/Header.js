@@ -9,7 +9,14 @@ import create from '../../../pages/create'
 import ls from 'local-storage'
 const Header = (props) => {
   const globalState = useStateContext();
-
+  let storage = ls('users');
+  const user = ()=>{
+    return storage.map((item)=>{
+      return item.user
+    })
+  }
+console.log(storage);
+console.log(user())
   return (
     <header
       className={`top-header ${

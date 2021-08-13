@@ -4,13 +4,15 @@ import { useStateContext } from '../HBOProvider'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import ls from 'local-storage'
+import CreateUser from '../../../pages/create'
 import { useMounted } from '../../Hooks/useMounted'
-const Login= () => {
+const Login= (props) => {
     const globalState = useStateContext();
     const router = useRouter();
     const [loadingUsers, setLoadingUsers] = useState(true)
     let users =ls('users')!== null ? ls('users') : [];
     let {hasMounted} = useMounted;
+    console.log(props)
 
     useEffect(()=>{
         if(users < 1){
@@ -19,17 +21,18 @@ const Login= () => {
         console.log('load effect', users)
     }, [])
     console.log('declared users', users)
-    const selectUser = (id) => {
+    const selectUser = (id, name) => {
         ls('activeUID', id)
+        ls('userName', users.name)
         router.push('/')
     }
     const showUsers = () =>{
         if(loadingUsers){
             return users.map((user)=>{
-                return( <div onClick={()=> {selectUser(user.id)}} className="login-user_user-box" key={user.id}>
+                return( <div onClick={()=> {selectUser(user.id, user.user)}} className="login-user_user-box" key={user.id}>
                 <Image alt="" className="login-user_user-img" src={require("/public/img/UiFace.jpg").default} width={125} height={125} />
 
-                <div className="login-user_user-name" >{user.user}</div>
+                <div className="login-user_user-name" >{user.name}</div>
 
             </div>)
             })

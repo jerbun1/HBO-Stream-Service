@@ -65,7 +65,7 @@ export default function Home() {
           title="Adventure"
           type="small-h"
           mediaType="movie"
-          endpoint="discover/movie?with_genres=12&primary_release_year=2021"
+          endpoint="discover/movie?with_genres=12&primary_release_year=2020"
         />
       </LazyLoad>
       <LazyLoad
@@ -76,7 +76,7 @@ export default function Home() {
           title="Animation"
           type="small-h"
           mediaType="movie"
-          endpoint="discover/movie?with_genres=16&primary_release_year=2021"
+          endpoint="discover/movie?with_genres=16"
         />
       </LazyLoad>
       <LazyLoad

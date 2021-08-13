@@ -14,7 +14,7 @@ export default function SingleMediaPage(props) {
 
   const router = useRouter(); //use to get the route of the page using a hook
   const [mediaData, setMediaData] = useState(false); //used to get the movie data from API  
-  console.log(props);
+  console.log(props.mediaData);
   // API call to get the information of selection 
   // useEffect(() => {
   //   axios
@@ -36,7 +36,7 @@ export default function SingleMediaPage(props) {
     <MainLayout>
       <Header />
       <FeaturedMedia
-        title={props.params.mediaType === 'movie' ? props.mediaData.original_title : props.mediaData.name}
+        title={props.params.mediaType === 'movie' ? props.mediaData.title : props.mediaData.name}
         playing={ props.params.mediaType === 'movie' ? props.mediaData.release_date : props.mediaData.first_air_date}
         overview={props.mediaData.overview}
         mediaUrl={`https://image.tmdb.org/t/p/w1280${props.mediaData.backdrop_path}`}
@@ -64,7 +64,7 @@ export async function getServerSideProps(context) {
   let mediaData;
   try{
     mediaData = await axios.get(`https://api.themoviedb.org/3/${context.params.mediaType}/${context.params.id}?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`)
-    console.log(props)
+    console.log(mediaData)
 
   }catch(error){
     console.log(error);

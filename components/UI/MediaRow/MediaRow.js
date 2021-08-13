@@ -27,10 +27,10 @@ const MediaRow = (props) => {
   }, []);
 
   const loopComp = (comp, digit) => {
-    let thumbnails = [];
-    for (let index = 0; index <= digit; index++) {
-      thumbnails.push(comp);
-    }
+    let thumbnails = [<Skeleton  key={'a'}/>,<Skeleton  key={'b'}/>,<Skeleton  key={'c'}/>,<Skeleton  key={'d'}/>,<Skeleton  key={'e'}/>];
+    // for (let index = 0; index <= digit; index++) {
+    //   thumbnails.push(comp);
+    // }
     return thumbnails;
   };
   //Should Simulate loading up an image for the thumbnails
@@ -38,7 +38,7 @@ const MediaRow = (props) => {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : movies.map((movie) => {
-          return <Thumbnail movieData={movie} type={type} key={props.movie} mediaType={props.mediaType}/>;
+          return <Thumbnail movieData={movie} type={type} key={movie.id} mediaType={props.mediaType}/>;
         });
   };
 

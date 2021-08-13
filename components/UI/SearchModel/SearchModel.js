@@ -24,7 +24,7 @@ const SearchModel = (props) => {
             </div>
             <div className="search-model_thumbnails">
 
-                {loopComp(
+                {/* {loopComp(
                     (<div className="search-model_thumbnail" >
                             <Image alt="Rick and Morty Poster" src={require("/public/img/RickandMorty.png").default} width={240}height={360}/>
                         <div className="search-model_top-layer">
@@ -33,8 +33,14 @@ const SearchModel = (props) => {
 
                     </div>), 10
 
-                )}
+                )} */}
+                <div className="search-model_thumbnail" >
+                            <Image alt="Rick and Morty Poster" src={require("/public/img/RickandMorty.png").default} width={240}height={360}/>
+                        <div className="search-model_top-layer">
+                            <i className="fa fa-play"/>
+                       </div>
 
+                    </div>
 
             </div>
 

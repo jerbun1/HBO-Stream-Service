@@ -25,11 +25,12 @@
         border: none;
         border-bottom: 2px solid rgb(132,0,255);
         width: 46%;
+        color: white;
     }
     &_close-btn{
         position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
         font-size: 3rem;
         padding: 15px;
         cursor: pointer;

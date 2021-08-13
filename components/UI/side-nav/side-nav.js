@@ -18,13 +18,13 @@ const SideNav = (props) => {
             <a>Home</a>
           </li>
         </Link>
-        <Link href="/" onClick={() => globalState.setSideNavOpenAction(false)}>
-          <li href="/movie" className="active">
+        <Link href="/movie" onClick={() => globalState.setSideNavOpenAction(false)}>
+          <li href="/" className="active">
             <a>Movies</a>
           </li>
         </Link>
-        <Link href="/" onClick={() => globalState.setSideNavOpenAction(false)}>
-          <li href="/tv">
+        <Link href="/tv" onClick={() => globalState.setSideNavOpenAction(false)}>
+          <li href="/">
             <a>Series</a>
           </li>
         </Link>
