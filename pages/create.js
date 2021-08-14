@@ -71,6 +71,8 @@ export default function CreateUser() {
             src={require("/public/img/UiFace.jpg").default}
             width={160}
             height={160}
+            style={{border: '3px solid rgb(132, 0, 255)'}}
+
           />
 
           <div className="create-user_input-group">

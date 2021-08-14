@@ -55,9 +55,10 @@ console.log(storage);
           alt=""
           className="top-header_user-img"
           src={require("/public/img/UiFace.jpg").default}
-          width={100}
-          height={100}
+          width={70}
+          height={70}
           border="3px solid rgb(230, 209, 250)"
+          style={{background: '3px solid rgb(132, 0, 255)'}}
         />
 
         <div className="top-header_user-name">{globalState.user}</div>

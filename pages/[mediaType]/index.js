@@ -19,11 +19,37 @@ export default function MediaTypePage(props) {
   const globalState = useStateContext();
   const router = useRouter();
   useEffect(() => {}, []);
+
+  const showRandomMedia = () => {
+    let thumbTypes;
+    return props.genresData.map((item) => {
+      thumbTypes = shuffleArray(globalState.thumbTypes)[0];
+      return (
+        <div key={item.id}>
+          <LazyLoad
+          offset={-80}
+          placeholder={<Placeholder title={item.title} type={thumbTypes} key={item.id} />}
+        >
+          <MediaRow
+            title={item.name}
+            type={thumbTypes}
+            endpoint={`discover/${props.params.mediaType}?with_genres=${item.id}&sort_by=popularity.desc&primary_release_year=2021`}
+          />
+        </LazyLoad>
+        </div>
+        
+      );
+    });
+  };
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
         mediaUrl={`https://image.tmdb.org/t/p/w1280${props.featuredData.backdrop_path}`}
-        title={props.params.mediaType === 'movie' ? props.featuredData.title : props.featuredData.name}
+        title={
+          props.params.mediaType === "movie"
+            ? props.featuredData.title
+            : props.featuredData.name
+        }
         overview={props.featuredData.overview}
         linkUrl={`/${props.params.mediaType}/${props.featuredData.id}`}
         type="single"
@@ -32,20 +58,9 @@ export default function MediaTypePage(props) {
         mediaType={props.params.mediaType}
         genresData={props.genresData}
       />
-      <LazyLoad
-        offset={-80}
-        placeholder={<Placeholder title="Movies" type="large-v" />}
-      >
-        <MediaRow
-          title={`${props.params.mediaType === 'movie' ? 'Movie': 'Series'}`}
-          type="large-v"
-          mediaType="movie"
-          endpoint={`discover/${props.params.mediaType === 'movie' ? 'movie' : 'tv'}?sort_by=popularity.desc&primary_release_year=2021`}
-        />
-      </LazyLoad>
+      {showRandomMedia()}
     </MainLayout>
   );
-
 }
 
 export async function getServerSideProps(context) {
@@ -55,17 +70,21 @@ export async function getServerSideProps(context) {
     genresData = await axios.get(
       `https://api.themoviedb.org/3/genre/${context.params.mediaType}/list?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
     );
-    featuredData = await axios.get(`https://api.themoviedb.org/3/discover/${context.params.mediaType}?primary_release_year=2021&api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`);
-    console.log('genresData')
+    featuredData = await axios.get(
+      `https://api.themoviedb.org/3/discover/${context.params.mediaType}?primary_release_year=2021&api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
+    );
+    console.log("genresData");
     console.log(genresData.data);
     console.log(featuredData.data.results);
-
   } catch (error) {
     console.log(error);
   }
 
   return {
-    props: { genresData: genresData.data.genres, featuredData: shuffleArray(featuredData.data.results)[0],
-      params: context.query }, // will be passed to the page component as props
+    props: {
+      genresData: genresData.data.genres,
+      featuredData: shuffleArray(featuredData.data.results)[0],
+      params: context.query,
+    }, // will be passed to the page component as props
   };
 }

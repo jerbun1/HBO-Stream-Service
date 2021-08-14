@@ -18,35 +18,22 @@ const SideNav = (props) => {
             <a>Home</a>
           </li>
         </Link>
+        <div className="side-nav-divider" />
+
         <Link href="/movie" onClick={() => globalState.setSideNavOpenAction(false)}>
           <li href="/" className="active">
             <a>Movies</a>
           </li>
         </Link>
+        <div className="side-nav-divider" />
+
         <Link href="/tv" onClick={() => globalState.setSideNavOpenAction(false)}>
           <li href="/">
             <a>Series</a>
           </li>
         </Link>
       </ul>
-      <div className="side-nav-divider" />
-      <ul className="side-nav-main">
-        <Link href="/">
-          <li href="Action"><a>Action</a></li>
-        </Link>
-        <Link href="/">
-          <li href="/"><a>Adventure</a></li>
-        </Link>
-        <Link href="/">
-          <li href="/"><a>Comedy</a></li>
-        </Link>
-        <Link href="/">
-          <li href="/"><a>Horror</a></li>
-        </Link>
-        <Link href="/">
-          <li href="/"><a>Animation</a></li>
-        </Link>
-      </ul>
+      
     </div>
   );
 };

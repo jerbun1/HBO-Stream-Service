@@ -15,7 +15,7 @@ const JustAdded = (props) => {
 
                 {loopComp(
                     (<div className="justadded-list_thumbnail">
-                  <Image alt="BlackPanther Movie Poster" src={require("/public/img/BlackPanther.jpg").default} width={400} height={600}/>
+                  <Image alt="" src={require("/public/img/BlackPanther.jpg").default} width={400} height={600}/>
                         <div className="justadded-list_top-layer">
                         <i className="fa fa-play"/>
 

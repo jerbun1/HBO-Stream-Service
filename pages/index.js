@@ -98,7 +98,7 @@ export default function Home() {
           title="Comedy"
           type="large-v"
           mediaType="movie"
-          endpoint="discover/movie?with_genres=35&primary_release_year=2021"
+          endpoint="discover/movie?with_genres=35&primary_release_year=2019"
         />
       </LazyLoad>
     </MainLayout>
