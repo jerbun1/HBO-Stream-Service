@@ -11,13 +11,12 @@ const Header = (props) => {
   const globalState = useStateContext();
   let storage = ls('users');
   console.log(storage)
-//   const removeName = (props) =>{
-//     let remove= props.storage.map((item)=> item)
-//     return  remove.unshift()
-//  }
- 
-console.log(storage.map((item)=> item.name));
-// console.log(user())
+  const userName = () =>{
+    let name= storage.map((item)=> item.name)
+    return  name
+ }
+ console.log(userName())
+
   return (
     <header
       className={`top-header ${
@@ -62,7 +61,7 @@ console.log(storage.map((item)=> item.name));
           style={{background: '3px solid rgb(132, 0, 255)'}}
         />
 
-        <div className="top-header_user-name">{storage.map((item)=> item.name)}</div>
+        <div className="top-header_user-name">{userName()}</div>
       </div>
       <SearchModel />
       <Account />
