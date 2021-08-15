@@ -1,8 +1,14 @@
 import Link from 'next/link'
 import { useStateContext } from "../HBOProvider";
+import ls from 'local-storage';
 //This is the Account Component that will display some info to the user 
 
 const Account = (props) => {
+    let storage = ls('users');
+    const logOut = () =>{
+       remove= storage.map((item)=> item.name)
+       return   remove.shift()
+    }
     //Variable used for some of the Reach Hooks 
     const globalState = useStateContext();
     return (
@@ -46,7 +52,7 @@ const Account = (props) => {
 
                     </li>
                     <li>
-                        <Link href="../login" className="active">
+                        <Link href="../login" className="active" onClick={logOut}>
                             Sign-Out
 
                         </Link>

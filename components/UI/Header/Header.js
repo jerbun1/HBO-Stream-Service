@@ -10,12 +10,14 @@ import ls from 'local-storage'
 const Header = (props) => {
   const globalState = useStateContext();
   let storage = ls('users');
-  // const user = ()=>{
-  //   return storage.map((item)=>{
-  //     return item.user
-  //   })
-  // }
-console.log(storage);
+  console.log(storage)
+  const removeName = () =>{
+    let remove= storage.map((item)=> item)
+    return  remove.unshift()
+ }
+ console.log(removeName())
+ 
+console.log(storage.map((item)=> item.name));
 // console.log(user())
   return (
     <header
@@ -61,7 +63,7 @@ console.log(storage);
           style={{background: '3px solid rgb(132, 0, 255)'}}
         />
 
-        <div className="top-header_user-name">{globalState.user}</div>
+        <div className="top-header_user-name">{storage.map((item)=> item.name)}</div>
       </div>
       <SearchModel />
       <Account />

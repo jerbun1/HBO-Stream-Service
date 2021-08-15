@@ -19,7 +19,7 @@ const SearchModel = (props) => {
       setPopData(popData.data.results.filter((item, i) => i < 13));
       setShowResults(false);
       console.log( popData);
-      // let searchData = await axios.get(`https://api.themoviedb.org/3/search/${props.endPoint}?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US&page=1&include_adult=false`)
+      let searchData = await axios.get(`https://api.themoviedb.org/3/search/${props.endPoint}?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US&page=1&include_adult=false`)
     } catch (err) {}
   }, []);
   const handleInput = async (e) => {
@@ -99,7 +99,7 @@ const SearchResults = (props) => {
     console.log(props)
   return props.searchData.map((item, index) => {
     return (
-      <Link href={`/movie/${item.id}`} key={index}>
+      <Link href={`/${item.media_type}/${item.id}`} key={index}>
         <a>
           <div className="search-model_thumbnail">
             <Image
