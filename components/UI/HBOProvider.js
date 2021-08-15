@@ -1,5 +1,6 @@
 //IMPORTS
 import React, { useContext, useState } from 'react'
+import ls from 'local-storage'
 
 
 export const StateContext = React.createContext();
@@ -19,6 +20,7 @@ export function HBOProvider({ children }) {
     const [sideNavOpen, setSideNavOpenAction] = useState(false)
     const [searchOpen, setSearchOpenAction] = useState(false);
     const thumbTypes= ['large-v', 'small-v', 'small-h']
+    const createdUser = ls('users');
 
     return (
         <StateContext.Provider
@@ -27,7 +29,7 @@ export function HBOProvider({ children }) {
                 sideNavOpen, setSideNavOpenAction,
                 accountModalOpen, setAccountModalOpenAction,
                 searchOpen, setSearchOpenAction,
-                thumbTypes
+                thumbTypes, createdUser
             }} >
             {children}
         </StateContext.Provider>

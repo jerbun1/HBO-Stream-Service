@@ -11,11 +11,7 @@ const Header = (props) => {
   const globalState = useStateContext();
   let storage = ls('users');
   console.log(storage)
-  const userName = () =>{
-    let name= storage.map((item)=> item.name)
-    return  name
- }
- console.log(userName())
+ console.log(globalState)
 
   return (
     <header
@@ -61,7 +57,7 @@ const Header = (props) => {
           style={{background: '3px solid rgb(132, 0, 255)'}}
         />
 
-        <div className="top-header_user-name">{userName()}</div>
+        <div className="top-header_user-name">{globalState.user}</div>
       </div>
       <SearchModel />
       <Account />
