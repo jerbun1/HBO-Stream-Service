@@ -11,11 +11,10 @@ const Header = (props) => {
   const globalState = useStateContext();
   let storage = ls('users');
   console.log(storage)
-  const removeName = (props) =>{
-    let remove= props.storage.map((item)=> item)
-    return  remove.unshift()
- }
- console.log(removeName())
+//   const removeName = (props) =>{
+//     let remove= props.storage.map((item)=> item)
+//     return  remove.unshift()
+//  }
  
 console.log(storage.map((item)=> item.name));
 // console.log(user())
