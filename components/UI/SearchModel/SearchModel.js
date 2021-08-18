@@ -20,8 +20,11 @@ const SearchModel = (props) => {
       setShowResults(false);
       console.log( popData);
       let searchData = await axios.get(`https://api.themoviedb.org/3/search/${props.endPoint}?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US&page=1&include_adult=false`)
-    } catch (err) {}
+    } catch (err) {
+      
+    }
   }, []);
+
   const handleInput = async (e) => {
     try {
       setText(e.target.value);

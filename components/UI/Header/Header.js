@@ -28,6 +28,8 @@ const Header = (props) => {
           onClick={() => globalState.setSideNavOpenAction(true)}
         >
           <i className="fa fa-bars" />
+          <i className="fa fa-bars" />
+
         </div>
         <div
           className="top-header_search-btn"

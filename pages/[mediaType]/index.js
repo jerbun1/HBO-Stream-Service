@@ -34,6 +34,7 @@ export default function MediaTypePage(props) {
             title={item.name}
             type={thumbTypes}
             endpoint={`discover/${props.params.mediaType}?with_genres=${item.id}&sort_by=popularity.desc&primary_release_year=2021`}
+       
           />
         </LazyLoad>
         </div>
@@ -53,6 +54,8 @@ export default function MediaTypePage(props) {
         overview={props.featuredData.overview}
         linkUrl={`/${props.params.mediaType}/${props.featuredData.id}`}
         type="single"
+        mediaType={props.params.mediaType}
+        mediaId ={props.featuredData.id}
       />
       <GenreNav
         mediaType={props.params.mediaType}

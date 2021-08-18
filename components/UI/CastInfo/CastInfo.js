@@ -39,9 +39,9 @@ const CastInfo = (props) => {
     //If the data is loaded
     if (loadingData != true) {
       //return a list of cast members using the hook
-      return credits.cast.map((item) => {
+      return credits.cast.map((item, index) => {
         return (
-          <ul className="cast-info_crew" key={item}>
+          <ul className="cast-info_crew" key={index}>
             <li>{item.character}</li>
             <li>{item.name}</li>
           </ul>
@@ -59,9 +59,9 @@ const CastInfo = (props) => {
     //If the data is loaded
     if (loadingData != true) {
       //return a list of cast members using the hook
-      return credits.crew.map((item) => {
+      return credits.crew.map((item, index) => {
         return (
-          <ul className="cast-info_crew" key={item}>
+          <ul className="cast-info_crew" key={index}>
             <li>{item.job}</li>
             <li>{item.original_name}</li>
           </ul>

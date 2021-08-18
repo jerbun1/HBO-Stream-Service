@@ -23,7 +23,6 @@ const Login= (props) => {
     console.log('declared users', users)
     const selectUser = (id, name) => {
         ls('activeUID', id)
-        ls('userName', users.name)
         router.push('/')
     }
     const showUsers = () =>{

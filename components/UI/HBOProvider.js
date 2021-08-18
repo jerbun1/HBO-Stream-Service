@@ -19,8 +19,29 @@ export function HBOProvider({ children }) {
     const [accountModalOpen, setAccountModalOpenAction] = useState(false);
     const [sideNavOpen, setSideNavOpenAction] = useState(false)
     const [searchOpen, setSearchOpenAction] = useState(false);
+    const [watchList, setWatchList] = useState(ls.get('myList'));
+
     const thumbTypes= ['large-v', 'small-v', 'small-h']
-    const createdUser = ls('users');
+
+    const addToList = (video) =>{
+        let myList;
+
+        if(ls('myList') !== null){
+            myList = ls.get('myList');
+            myList.push(video);
+            ls.set('myList', myList)
+            setWatchList(myList)
+        } else {
+            ls.set('myList', [video])
+        }
+    }
+
+    const removeFromList = (videoId) =>{
+       let myList = ls('myList');
+       myList = myList.filter((item)=> item.mediaId !== videoId)
+       ls.set('myList', myList)
+       setWatchList(myList)
+    }
 
     return (
         <StateContext.Provider
@@ -29,7 +50,9 @@ export function HBOProvider({ children }) {
                 sideNavOpen, setSideNavOpenAction,
                 accountModalOpen, setAccountModalOpenAction,
                 searchOpen, setSearchOpenAction,
-                thumbTypes, createdUser
+                thumbTypes, 
+                removeFromList, addToList,
+                watchList, setWatchList
             }} >
             {children}
         </StateContext.Provider>
