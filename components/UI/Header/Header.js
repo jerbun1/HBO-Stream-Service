@@ -11,6 +11,7 @@ const Header = (props) => {
   const globalState = useStateContext();
   let storage = ls('users');
   console.log(storage)
+  console.log()
  console.log(globalState)
 
   return (

@@ -32,7 +32,7 @@ const CastInfo = (props) => {
         //Handles an error
         console.log("error response for cast and crew");
       });
-  }, []);
+  }, [props.updateData]);
 
   //Function to show the cast of the movie/tv show
   const showCast = () => {

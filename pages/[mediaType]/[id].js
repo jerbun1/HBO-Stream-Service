@@ -15,6 +15,8 @@ export default function SingleMediaPage(props) {
   const router = useRouter(); //use to get the route of the page using a hook
   const [mediaData, setMediaData] = useState(false); //used to get the movie data from API  
   console.log(props.mediaData);
+  console.log(mediaData);
+
   // API call to get the information of selection 
   // useEffect(() => {
   //   axios
@@ -51,13 +53,15 @@ export default function SingleMediaPage(props) {
         placeholder={<Placeholder title="Movies" type="large-v" />}
       >
         <MediaRow
+        updateData={props.params.id}
           title="Similar Movies"
           type="small-v"
           mediaType={props.params.mediaType}
           endpoint={`${props.params.mediaType == 'movie' ? 'movie': 'tv'}/${props.params.id}/similar?`}
         />
       </LazyLoad>
-      <CastInfo mediaId={props.params.id} mediaType={props.params.mediaType} />
+      <CastInfo mediaId={props.params.id} mediaType={props.params.mediaType}         updateData={props.params.id}
+ />
     </MainLayout>
   );
 }

@@ -1,5 +1,7 @@
 import Image from "next/dist/client/image";
 import { useStateContext } from "../HBOProvider";
+import router from "next/router";
+import { useRouter } from "next/router";
 const FeaturedMedia = (props) => {
   const globalState = useStateContext();
   //ClickedPlay function to send the user to the movie info page
@@ -56,7 +58,7 @@ const FeaturedMedia = (props) => {
           </div>
           <div className="featured-media_overview">{props.overview}</div>
           <div className="featured-media_buttons">
-            <div className="featured-media_play-btn">
+            <div className="featured-media_play-btn" onClick={() =>clickedPlay(props)}>
               <i className="fa fa-play" />
             </div>
             <div className="featured-media_add-btn" onClick={() =>clickedAdd(props)}>

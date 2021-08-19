@@ -20,11 +20,16 @@ const Login= (props) => {
         }
         console.log('load effect', users)
     }, [])
+
     console.log('declared users', users)
-    const selectUser = (id, name) => {
+
+    const selectUser = (id, user) => {
         ls('activeUID', id)
+        ls('activeUName', user)
+        
         router.push('/')
     }
+    
     const showUsers = () =>{
         if(loadingUsers){
             return users.map((user)=>{

@@ -42,14 +42,13 @@ const SearchModel = (props) => {
     }
   };
 
+    const closeSearchModel = () =>{
+      return globalState.setSearchOpenAction(!globalState.searchOpen)
+    }
 
-  // const loopComp = (comp, digit) => {
-  //     let thumbnails = [];
-  //     for (let index = 0; index <= digit; index++) {
-  //         thumbnails.push(comp);
-  //     }
-  //     return thumbnails;
-  // }
+
+  
+
 
   return (
     <div
@@ -76,16 +75,7 @@ const SearchModel = (props) => {
       <div className="search-model_title">
         <h3>Popular Searches</h3>
       </div>
-      {/* {loopComp(
-                    (<div className="search-model_thumbnail" >
-                            <Image alt="Rick and Morty Poster" src={require("/public/img/RickandMorty.png").default} width={240}height={360}/>
-                        <div className="search-model_top-layer">
-                            <i className="fa fa-play"/>
-                       </div>
-
-                    </div>), 5
-
-                )} */}
+    
       <div className="search-model_thumbnails">
         {showResults && searchData.length >= 1 ? (
           <SearchResults searchData={searchData} />
@@ -104,7 +94,7 @@ const SearchResults = (props) => {
     return (
       <Link href={`/${item.media_type}/${item.id}`} key={index}>
         <a>
-          <div className="search-model_thumbnail">
+          <div className="search-model_thumbnail" onClick={closeSearchModel()}>
             <Image
               alt="Rick and Morty Poster"
               src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
@@ -127,7 +117,7 @@ const PopularResults = (props) => {
       return (
         <Link href={`/movie/${item.id}`} key={index}>
           <a>
-            <div className="search-model_thumbnail">
+            <div className="search-model_thumbnail" >
               <Image
                 alt="Rick and Morty Poster"
                 src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}

@@ -9,17 +9,19 @@ const AuthCheck = (component) => {
     const router = useRouter();
     const { hasMounted } = useMounted();
     let activeUID = ls('activeUID');
+    let activeUName = ls('activeUName');
+
     let users = ls('users') != null ? ls('users') : [];
 
     useEffect(() => {
         // if (users.length >= 1) {
         //     router.push('/login');
         // }
-        if (activeUID == null && users.length < 1) {
+        if (activeUID == null && activeUName == null && users.length < 1) {
             router.push('create')
         }
     }, [])
-    if (users.length >= 1 && activeUID !== null) {
+    if (users.length >= 1 && activeUID !== null &&activeUName !== null) {
         return hasMounted ? (component) : (<div className="create-user">
             <div className="create-user_top">
                 <div className="create-user_logo"></div>

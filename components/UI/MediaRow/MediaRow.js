@@ -24,7 +24,7 @@ const MediaRow = (props) => {
         //Handles an error
         console.log("error response for " + props.title);
       });
-  }, []);
+  }, [props.updateData]);
 
   const loopComp = (comp, digit) => {
     let thumbnails = [<Skeleton  key={'a'}/>,<Skeleton  key={'b'}/>,<Skeleton  key={'c'}/>,<Skeleton  key={'d'}/>,<Skeleton  key={'e'}/>];

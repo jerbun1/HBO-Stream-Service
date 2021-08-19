@@ -59,7 +59,7 @@ const Account = (props) => {
   };
 
   const signOut = () => {
-    ls.remove("activeUID");
+    ls.remove("activeUID")
     router.push("login");
   };
   return (

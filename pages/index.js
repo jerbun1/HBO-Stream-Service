@@ -17,10 +17,11 @@ export default function Home() {
   useEffect(() => {}, []);
   return AuthCheck(
     <MainLayout>
+       {/* Possible replacement for video display src="https://www.youtube.com/embed/8YjFbMbfXaQ" original vid https://www.youtube.com/embed/TcMBFSGVi1c */}
       <FeaturedMedia
-        mediaUrl="https://www.youtube.com/embed/TcMBFSGVi1c?&autoplay=1&loop=1"
+        mediaUrl="https://www.youtube.com/embed/8YjFbMbfXaQ?&autoplay=1&loop=1"
         title="Avengers Endgame"
-        linkUrl="/movies/299534"
+        linkUrl="/movies/566525"
         type="front"
         
       />
