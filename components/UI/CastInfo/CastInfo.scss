@@ -1,28 +1,35 @@
-.cast-info{
-    padding: 50px;
-    color: white;
-    &_group-title{
-        font-size: 1.7rem;
-        font-weight: 700;
-        margin-bottom: 2rem;
-        margin-top: 2rem;
-        &:nth-child(1){
-            margin-top:  0;
-        }
+.cast-info {
+  padding: 50px;
+  color: white;
+  display: flex;
+  &_cast {
+position: inherit;
+  }
+  &_movieCrew {
+    position: inherit;
+  }
+  &_group-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    &:nth-child(1) {
+      margin-top: 0;
     }
-    &_list{
-        font-size: 1.2rem;
+  }
+  &_list {
+    font-size: 1.2rem;
+  }
+  &_crew {
+    display: flow-root;
+    margin-bottom: 1rem;
+    li:nth-child(1) {
+      margin-right: 100px;
+      color: rgb(153, 153, 153);
+      width: 200px;
     }
-    &_crew{
-        display: flex;
-        margin-bottom: 1rem;
-        li:nth-child(1){
-            margin-right:  100px;
-            color: rgb(153,153,153);
-            width: 200px;
-        }
-        li:nth-child(2){
-            color: rgb(200,200,200);
-        }
+    li:nth-child(2) {
+      color: rgb(200, 200, 200);
     }
+  }
 }

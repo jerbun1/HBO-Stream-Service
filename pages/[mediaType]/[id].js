@@ -10,30 +10,15 @@ import { useState } from "react";
 import LazyLoad from "react-lazyload";
 import Placeholder from "../../components/UI/Placeholder/Placeholder";
 import AuthCheck from "../../components/UI/AuthCheck";
+
 export default function SingleMediaPage(props) {
 
   const router = useRouter(); //use to get the route of the page using a hook
-  const [mediaData, setMediaData] = useState(false); //used to get the movie data from API  
-  console.log(props.mediaData);
+  const [mediaData, setMediaData] = useState(false); //variable and function to get and set the movie API data 
+  console.log(props);
   console.log(mediaData);
 
-  // API call to get the information of selection 
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `https://api.themoviedb.org/3/movie/${props.params.id}?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
-  //     )
-  //     .then((res) => {
-  //       //Handles successful response
 
-  //       console.log(res.data);
-  //       setMediaData(res.data);
-  //     })
-  //     .catch((res) => {
-  //       //Handles an error
-  //       console.log(res);
-  //     });
-  // }, [mediaData]);
   return AuthCheck(
     <MainLayout>
       <Header />
@@ -60,14 +45,16 @@ export default function SingleMediaPage(props) {
           endpoint={`${props.params.mediaType == 'movie' ? 'movie': 'tv'}/${props.params.id}/similar?`}
         />
       </LazyLoad>
-      <CastInfo mediaId={props.params.id} mediaType={props.params.mediaType}         updateData={props.params.id}
+      <CastInfo mediaId={props.params.id} mediaType={props.params.mediaType} updateData={props.params.id}
  />
     </MainLayout>
   );
 }
 
+  // API call to get the information of selection 
 export async function getServerSideProps(context) {
   let mediaData;
+  
   try{
     mediaData = await axios.get(`https://api.themoviedb.org/3/${context.params.mediaType}/${context.params.id}?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`)
     console.log(mediaData)

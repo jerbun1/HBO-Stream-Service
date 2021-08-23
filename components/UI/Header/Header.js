@@ -10,8 +10,9 @@ import ls from 'local-storage'
 const Header = (props) => {
   const globalState = useStateContext();
   let storage = ls('users');
+  let user = ls('activeUName');
   console.log(storage)
-  console.log()
+  console.log(user)
  console.log(globalState)
 
   return (
@@ -60,7 +61,7 @@ const Header = (props) => {
           style={{background: '3px solid rgb(132, 0, 255)'}}
         />
 
-        <div className="top-header_user-name">{globalState.user}</div>
+        <div className="top-header_user-name">{user}</div>
       </div>
       <SearchModel />
       <Account />

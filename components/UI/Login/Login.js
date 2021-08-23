@@ -23,9 +23,10 @@ const Login= (props) => {
 
     console.log('declared users', users)
 
-    const selectUser = (id, user) => {
+    const selectUser = (id, name) => {
         ls('activeUID', id)
-        ls('activeUName', user)
+        ls('activeUName', name)
+
         
         router.push('/')
     }
@@ -33,7 +34,7 @@ const Login= (props) => {
     const showUsers = () =>{
         if(loadingUsers){
             return users.map((user)=>{
-                return( <div onClick={()=> {selectUser(user.id, user.user)}} className="login-user_user-box" key={user.id}>
+                return( <div onClick={()=> {selectUser(user.id, user.name)}} className="login-user_user-box" key={user.id}>
                 <Image alt="" className="login-user_user-img" src={require("/public/img/UiFace.jpg").default} width={125} height={125} />
 
                 <div className="login-user_user-name" >{user.name}</div>

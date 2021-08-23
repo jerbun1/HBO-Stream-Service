@@ -60,6 +60,7 @@ const Account = (props) => {
 
   const signOut = () => {
     ls.remove("activeUID")
+    ls.remove(globalState.user)
     router.push("login");
   };
   return (

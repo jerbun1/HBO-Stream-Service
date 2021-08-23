@@ -7,6 +7,7 @@ const CastInfo = (props) => {
   //React Hooks
   const [loadingData, setLoadingData] = useState(true); //used for loading/getting the data from the API
   const [credits, setCreditsData] = useState([]); //used to hold the array of information from the cast/crew
+  const [review, setReviewData] = useState([]);
 
   // useEffect: you tell React that your component needs to do something after render.
   // React will remember the function you passed (we’ll refer to it as our “effect”),
@@ -31,6 +32,24 @@ const CastInfo = (props) => {
       .catch((err) => {
         //Handles an error
         console.log("error response for cast and crew");
+      });
+
+    axios
+      .get(
+        `https://api.themoviedb.org/3/${
+          props.mediaType === "movie" ? "movie" : "tv"
+        }/${
+          props.mediaId
+        }/reviews?api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
+      )
+      .then((res) => {
+        setReviewData(res.data.results);
+        console.log("good response for review");
+        console.log(res.data);
+        setLoadingData(false);
+      })
+      .catch((err) => {
+        console.log("error response for review");
       });
   }, [props.updateData]);
 
@@ -59,27 +78,61 @@ const CastInfo = (props) => {
     //If the data is loaded
     if (loadingData != true) {
       //return a list of cast members using the hook
-      return credits.crew.map((item, index) => {
-        return (
-          <ul className="cast-info_crew" key={index}>
-            <li>{item.job}</li>
-            <li>{item.original_name}</li>
-          </ul>
-        );
-      });
+      return credits.crew
+        .filter((item, index) => index < 10)
+        .map((item, index) => {
+          return (
+            <ul className="cast-info_crew" key={index}>
+              <li>{item.job}</li>
+              <li>{item.original_name}</li>
+            </ul>
+          );
+        });
     } else {
-            //return a message signifying loading data or can use a skeleton
+      //return a message signifying loading data or can use a skeleton
 
       return <div>Loading Crew </div>;
     }
   };
+
+  const showReviews = () => {
+    if (loadingData != true) {
+     
+         //return a list of cast members using the hook
+      return review.map((item, index) => {
+        return (
+          <ul className="cast-info_crew" key={index}>
+            <li style={{ color: "rgb(153, 153, 153)", fontWeight: "bold" }}>
+              {item.author}
+            </li>
+            <li style={{color: 'rgb(200, 200, 200)'
+}}>{item.content}</li>
+          </ul>
+        );
+      });
+    } else {
+      //return a message signifying loading data or can use a skeleton
+
+      return <div>Loading Review</div>;
+    }
+      
+     
+  };
   //Displays the Crew and Cast info
   return (
     <div className="cast-info">
-      <div className="cast-info_group-title">Cast</div>
-      <div className="cast-info_list">{showCast()}</div>
-      <div className="cast-info_group-title">Crew</div>
-      <div className="cast-info_list">{showCrew()}</div>
+      <div className="cast-info_cast">
+        <div className="cast-info_group-title">Cast</div>
+        <div className="cast-info_list">{showCast()}</div>
+      </div>
+      <div className="cast-info_movieCrew">
+        <div className="cast-info_group-title">Crew</div>
+        <div className="cast-info_list">{showCrew()}</div>
+      </div>
+      <div className="cast-info_review">
+        <div className="cast-info_group-title">Reviews</div>
+        <div className="cast-info_list">{showReviews()}</div>
+      </div>
     </div>
   );
 };
