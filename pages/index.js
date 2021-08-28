@@ -20,10 +20,10 @@ export default function Home() {
        {/* Possible replacement for video display src="https://www.youtube.com/embed/8YjFbMbfXaQ" original vid https://www.youtube.com/embed/TcMBFSGVi1c */}
       <FeaturedMedia
         mediaUrl="https://www.youtube.com/embed/8YjFbMbfXaQ?&autoplay=1&loop=1"
-        title="Avengers Endgame"
+        title="Shang-Chi and the Legend of the Ten Rings"
         linkUrl="/movies/566525"
         type="front"
-        
+        playing="September 2021"
       />
       <LazyLoad
         offset={-80}

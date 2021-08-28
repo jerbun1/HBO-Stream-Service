@@ -41,15 +41,9 @@ const SearchModel = (props) => {
       console.log(e);
     }
   };
-
-    const closeSearchModel = () =>{
-      return globalState.setSearchOpenAction(!globalState.searchOpen)
-    }
-
-
-  
-
-
+  // const closeSearchModel = async () =>{
+  //   return globalState.setSearchOpenAction(!globalState.searchOpen)
+  // }
   return (
     <div
       className={`search-model ${
@@ -88,13 +82,15 @@ const SearchModel = (props) => {
 };
 
 
+
+
 const SearchResults = (props) => {
     console.log(props)
   return props.searchData.map((item, index) => {
     return (
       <Link href={`/${item.media_type}/${item.id}`} key={index}>
         <a>
-          <div className="search-model_thumbnail" onClick={closeSearchModel()}>
+          <div className="search-model_thumbnail">
             <Image
               alt="Rick and Morty Poster"
               src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}

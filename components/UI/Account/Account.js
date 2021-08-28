@@ -59,8 +59,9 @@ const Account = (props) => {
   };
 
   const signOut = () => {
-    ls.remove("activeUID")
-    ls.remove(globalState.user)
+    ls.remove("activeUID");
+    ls.remove('activeUName');
+    ls.remove('myList');
     router.push("login");
   };
   return (
@@ -91,6 +92,88 @@ const Account = (props) => {
           </li>
           <li>
             <a onClick={signOut}> Sign-Out</a>
+          </li>
+          <li>
+            <Link href="#" className="active">
+              Colored Themes
+            </Link>
+            <div className="create-user_colors">
+              <div
+                className="create-user_color  create-user_color--active"
+                onClick={() => {
+                  globalState.setChangeBackground(
+                    "linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)"
+                  );
+                }}
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)",
+                }}
+              />
+              <div
+                className="create-user_color"
+                onClick={() => {
+                  globalState.setChangeBackground(
+                    "linear-gradient(133deg, rgba(2,0,36,1) 0%, rgba(36,4,74,1) 0%, rgba(77,9,121,1) 49%, rgba(164,139,38,1) 100%)"
+                  );
+                }}
+                style={{
+                  background:
+                    "linear-gradient(133deg, rgba(2,0,36,1) 0%, rgba(36,4,74,1) 0%, rgba(77,9,121,1) 49%, rgba(164,139,38,1) 100%)",
+                }}
+              />
+              <div
+                className="create-user_color"
+                onClick={() => {
+                  globalState.setChangeBackground(
+                    "linear-gradient(158deg, rgba(199,26,26,1) 20%, rgba(32,31,214,1) 77%)"
+                  );
+                }}
+                style={{
+                  background:
+                    "linear-gradient(158deg, rgba(199,26,26,1) 20%, rgba(32,31,214,1) 77%)",
+                }}
+              />
+
+              <div
+                className="create-user_color"
+                onClick={() => {
+                  globalState.setChangeBackground(
+                    "linear-gradient(158deg, rgba(137,0,171,1) 11%, rgba(31,214,67,1) 95%)"
+                  );
+                }}
+                style={{
+                  background:
+                    "linear-gradient(158deg, rgba(137,0,171,1) 11%, rgba(31,214,67,1) 95%)",
+                }}
+              />
+
+              <div
+                className="create-user_color"
+                onClick={() => {
+                  globalState.setChangeBackground(
+                    "linear-gradient(56deg, rgba(0,0,0,1) 14%, rgba(214,212,31,1) 95%)"
+                  );
+                }}
+                style={{
+                  background:
+                    "linear-gradient(56deg, rgba(0,0,0,1) 14%, rgba(214,212,31,1) 95%)",
+                }}
+              />
+
+              <div
+                className="create-user_color"
+                onClick={() => {
+                  globalState.setChangeBackground(
+                    "linear-gradient(56deg, rgba(254,142,98,1) 32%, rgba(31,210,214,1) 95%)"
+                  );
+                }}
+                style={{
+                  background:
+                    "linear-gradient(56deg, rgba(254,142,98,1) 32%, rgba(31,210,214,1) 95%)",
+                }}
+              />
+            </div>
           </li>
         </ul>
       </div>

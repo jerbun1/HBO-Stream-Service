@@ -1,7 +1,8 @@
 .cast-info {
   padding: 50px;
   color: white;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   &_cast {
 position: inherit;
   }

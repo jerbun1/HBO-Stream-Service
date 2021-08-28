@@ -53,7 +53,7 @@ const CastInfo = (props) => {
       });
   }, [props.updateData]);
 
-  //Function to show the cast of the movie/tv show
+  // Function to show the cast of the movie/tv show
   const showCast = () => {
     //If the data is loaded
     if (loadingData != true) {
@@ -97,26 +97,26 @@ const CastInfo = (props) => {
 
   const showReviews = () => {
     if (loadingData != true) {
-     
-         //return a list of cast members using the hook
-      return review.map((item, index) => {
-        return (
-          <ul className="cast-info_crew" key={index}>
-            <li style={{ color: "rgb(153, 153, 153)", fontWeight: "bold" }}>
-              {item.author}
-            </li>
-            <li style={{color: 'rgb(200, 200, 200)'
-}}>{item.content}</li>
-          </ul>
-        );
-      });
+      //return a list of cast members using the hook
+      if (review === null || review === []) {
+        return <div>Couldnt find any reviews</div>;
+      } else {
+        return review.map((item, index) => {
+          return (
+            <ul className="cast-info_crew" key={index}>
+              <li style={{ color: "rgb(153, 153, 153)", fontWeight: "bold" }}>
+                {item.author}
+              </li>
+              <li style={{ color: "rgb(200, 200, 200)" }}>{item.content}</li>
+            </ul>
+          );
+        });
+      }
     } else {
       //return a message signifying loading data or can use a skeleton
 
       return <div>Loading Review</div>;
     }
-      
-     
   };
   //Displays the Crew and Cast info
   return (
