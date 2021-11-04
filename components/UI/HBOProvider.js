@@ -15,16 +15,15 @@ export function HBOProvider({ children }) {
         setUser(e.target.value)
         console.log(user)
     }
-    //Some React Hooks 
+    //Some React Hooks for setting the state of certain component 
     const [accountModalOpen, setAccountModalOpenAction] = useState(false);
     const [sideNavOpen, setSideNavOpenAction] = useState(false)
     const [searchOpen, setSearchOpenAction] = useState(false);
-    // const [changeBackground, setChangeBackground] = useState(false)
     const [watchList, setWatchList] = useState(ls.get('myList'));
     const [changeBackground, setChangeBackground] = useState('linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)');
     const thumbTypes= ['large-v', 'small-v', 'small-h']
-    // const background = 'linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)';
 
+    //Adding media to the users list 
     const addToList = (video) =>{
         let myList;
 
@@ -37,7 +36,7 @@ export function HBOProvider({ children }) {
             ls.set('myList', [video])
         }
     }
-
+    //Removing Media from the user list 
     const removeFromList = (videoId) =>{
        let myList = ls('myList');
        myList = myList.filter((item)=> item.mediaId !== videoId)
@@ -45,6 +44,7 @@ export function HBOProvider({ children }) {
        setWatchList(myList)
     }
 
+    
     return (
         <StateContext.Provider
             value={{

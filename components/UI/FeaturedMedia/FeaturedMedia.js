@@ -2,22 +2,27 @@ import Image from "next/dist/client/image";
 import { useStateContext } from "../HBOProvider";
 import router from "next/router";
 import { useRouter } from "next/router";
+
+//The FeaturedMedia component 
 const FeaturedMedia = (props) => {
-  const globalState = useStateContext();
+  const globalState = useStateContext();     //Used for the state of the component 
+
+
   //ClickedPlay function to send the user to the movie info page
   const clickedPlay = () => {
     router.push(props.linkUrl);
   };
 
-
+  //Function to add selected media to users watch list
   const clickedAdd = (props) => {
     globalState.addToList({mediaId: props.mediaId, mediaType: props.mediaType, mediaUrl: props.mediaUrl})
       console.log('Clicked to add movie');
   };
 
 
-  //Function to show some type of media either a video trailler or a  movie poster/ backdrop
+  //Function to show some type of media either a video trailer or a  movie poster/ backdrop
   const showMedia = () => {
+
     //if props are a certain type display the video else display the movie poster/back drop
     if (props.type == "front") {
       return (
@@ -43,6 +48,7 @@ const FeaturedMedia = (props) => {
       );
     }
   };
+  //Returns the FeaturedMedia Component 
   return (
     <div
       className={`featured-media ${

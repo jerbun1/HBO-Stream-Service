@@ -16,8 +16,6 @@
         padding: 20px;
         overflow: hidden;
         display:flex;
-
-
     }
     &_title{
         font-size: 3rem;
@@ -105,4 +103,23 @@
 
 
 
+}
+
+@media only screen and(max-width: 600px){
+    .account{
+        width: 100%;
+
+        &_menu{
+            .account_main{
+                li{
+                    .create-user_colors{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr;
+                        grid-template-rows: 1fr 1fr;
+                        grid-gap: 10px;
+                    }
+                }
+            }
+        }
+    }
 }

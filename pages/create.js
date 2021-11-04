@@ -6,12 +6,12 @@ import { v4 } from "uuid";
 import Router from "next/dist/next-server/server/router";
 import { useRouter } from "next/router";
 
+//Create User Component 
 export default function CreateUser() {
   const globalState = useStateContext();
   const router = useRouter();
-  // 'linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)'
-  // const [changeBackground, setChangeBackground] = useState('linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)');
 
+  //saving the user to local storage function 
   const saveUser = () => {
     let users = [],
       user;
@@ -44,6 +44,7 @@ export default function CreateUser() {
 
   console.log(globalState);
 
+  //Login user Function to redirect the user to the login page 
   const loginUser = () => {
     router.push("login");
   };

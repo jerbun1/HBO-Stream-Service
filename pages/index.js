@@ -11,13 +11,17 @@ import LazyLoad from "react-lazyload";
 import AuthCheck from "../components/UI/AuthCheck";
 import MediaRow from "../components/UI/MediaRow/MediaRow";
 import Placeholder from "../components/UI/Placeholder/Placeholder";
+
+//Index Page 
 export default function Home() {
   const globalState = useStateContext();
   const router = useRouter();
   useEffect(() => {}, []);
   return AuthCheck(
+    //Main Layout Component 
     <MainLayout>
-       {/* Possible replacement for video display src="https://www.youtube.com/embed/8YjFbMbfXaQ" original vid https://www.youtube.com/embed/TcMBFSGVi1c */}
+       {/*  original vid https://www.youtube.com/embed/TcMBFSGVi1c */}
+       {/* Featured Media Component  */}
       <FeaturedMedia
         mediaUrl="https://www.youtube.com/embed/8YjFbMbfXaQ?&autoplay=1&loop=1"
         title="Shang-Chi and the Legend of the Ten Rings"
@@ -29,6 +33,7 @@ export default function Home() {
         offset={-80}
         placeholder={<Placeholder title="Movies" type="large-v" />}
       >
+        {/* Media Component For the Movies */}
         <MediaRow
           title="Movies"
           type="large-v"
@@ -40,6 +45,8 @@ export default function Home() {
         offset={-80}
         placeholder={<Placeholder title="Series" type="small-v" />}
       >
+                {/* Media Component For the Series */}
+
         <MediaRow
           title="Series"
           type="small-v"
@@ -51,6 +58,8 @@ export default function Home() {
         offset={-80}
         placeholder={<Placeholder title="Movies" type="small-v" />}
       >
+                {/* Media Component For the Action Movies */}
+
         <MediaRow
           title="Action"
           type="small-v"
@@ -62,6 +71,8 @@ export default function Home() {
         offset={-80}
         placeholder={<Placeholder title="Movies" type="small-h" />}
       >
+                {/* Media Component For the Adventure Movies */}
+
         <MediaRow
           title="Adventure"
           type="small-h"
@@ -73,6 +84,8 @@ export default function Home() {
         offset={-80}
         placeholder={<Placeholder title="Movies" type="small-h" />}
       >
+                {/* Media Component For the Animation Movies */}
+
         <MediaRow
           title="Animation"
           type="small-h"
@@ -84,6 +97,8 @@ export default function Home() {
         offset={-80}
         placeholder={<Placeholder title="Movies" type="large-v" />}
       >
+                {/* Media Component For the Horror Movies */}
+
         <MediaRow
           title="Horror"
           type="large-v"
@@ -95,6 +110,8 @@ export default function Home() {
         offset={-80}
         placeholder={<Placeholder title="Movies" type="large-v" />}
       >
+                {/* Media Component For the Comedy Movies */}
+
         <MediaRow
           title="Comedy"
           type="large-v"

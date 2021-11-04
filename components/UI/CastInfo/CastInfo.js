@@ -2,18 +2,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-// Cast Info Component
+// The Cast Info Component
 const CastInfo = (props) => {
+
   //React Hooks
   const [loadingData, setLoadingData] = useState(true); //used for loading/getting the data from the API
   const [credits, setCreditsData] = useState([]); //used to hold the array of information from the cast/crew
-  const [review, setReviewData] = useState([]);
+  const [review, setReviewData] = useState([]);   //used to hold the array of information for the movie review
 
   // useEffect: you tell React that your component needs to do something after render.
   // React will remember the function you passed (we’ll refer to it as our “effect”),
   // and call it later after performing the DOM updates.
   useEffect(() => {
-    //API call tothemoviedb database
+    //API call to themoviedb database to get the movie information 
     axios
       .get(
         `https://api.themoviedb.org/3/${
@@ -34,6 +35,7 @@ const CastInfo = (props) => {
         console.log("error response for cast and crew");
       });
 
+      //API call to themoviedb database to get the review data   
     axios
       .get(
         `https://api.themoviedb.org/3/${
@@ -55,9 +57,10 @@ const CastInfo = (props) => {
 
   // Function to show the cast of the movie/tv show
   const showCast = () => {
+
     //If the data is loaded
     if (loadingData != true) {
-      //return a list of cast members using the hook
+      //return a list of cast members using the above hook
       return credits.cast.map((item, index) => {
         return (
           <ul className="cast-info_crew" key={index}>
@@ -73,7 +76,6 @@ const CastInfo = (props) => {
   };
 
   //Function to show the crew of the movie/tv show
-
   const showCrew = () => {
     //If the data is loaded
     if (loadingData != true) {
@@ -95,9 +97,11 @@ const CastInfo = (props) => {
     }
   };
 
+  //Function to show the media reviews 
   const showReviews = () => {
+
     if (loadingData != true) {
-      //return a list of cast members using the hook
+      //return a list of reviews using the hook
       if (review === null || review === []) {
         return <div>Couldnt find any reviews</div>;
       } else {
@@ -118,7 +122,7 @@ const CastInfo = (props) => {
       return <div>Loading Review</div>;
     }
   };
-  //Displays the Crew and Cast info
+  //Displays the Crew, Cast and Review info
   return (
     <div className="cast-info">
       <div className="cast-info_cast">
@@ -137,4 +141,5 @@ const CastInfo = (props) => {
   );
 };
 
+//export the CastInfo component 
 export default CastInfo;

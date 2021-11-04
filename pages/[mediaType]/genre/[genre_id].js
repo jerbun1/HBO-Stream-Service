@@ -15,6 +15,7 @@ import GenreNav from "../../../components/UI/Genre-Nav/genre-nav";
 import axios from "axios";
 import { shuffleArray } from "../../../components/Utilities";
 
+//Component for displaying certain media genre types 
 export default function MediaTypePage(props) {
   const globalState = useStateContext();
   const router = useRouter();

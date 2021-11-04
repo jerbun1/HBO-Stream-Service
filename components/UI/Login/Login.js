@@ -6,14 +6,17 @@ import { useState, useEffect } from 'react'
 import ls from 'local-storage'
 import CreateUser from '../../../pages/create'
 import { useMounted } from '../../Hooks/useMounted'
+
+//This is the login component 
 const Login= (props) => {
-    const globalState = useStateContext();
-    const router = useRouter();
-    const [loadingUsers, setLoadingUsers] = useState(true)
-    let users =ls('users')!== null ? ls('users') : [];
-    let {hasMounted} = useMounted;
+    const globalState = useStateContext();  //Used for the state of the component
+    const router = useRouter();             //Used to change the route of the component 
+    const [loadingUsers, setLoadingUsers] = useState(true)      //used to for the state of the users or loading users 
+    let users =ls('users')!== null ? ls('users') : [];  //if statement to check the local storage for any users 
+    let {hasMounted} = useMounted;          //checks if the component has mounted 
     console.log(props)
 
+    //React hooks useEffect
     useEffect(()=>{
         if(users < 1){
             setLoadingUsers(false)
@@ -23,14 +26,14 @@ const Login= (props) => {
 
     console.log('declared users', users)
 
+    //Function to store the current users id and name in local storage for logging purposes 
     const selectUser = (id, name) => {
         ls('activeUID', id)
         ls('activeUName', name)
-
-        
         router.push('/')
     }
     
+    //Function to display the users name and pic from local storage 
     const showUsers = () =>{
         if(loadingUsers){
             return users.map((user)=>{
@@ -43,6 +46,7 @@ const Login= (props) => {
             })
         }
     }
+    //Redirects the user to the create page 
     const createUser=()=>{
         router.push('create')
     }

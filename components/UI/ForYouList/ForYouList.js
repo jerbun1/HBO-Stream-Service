@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+//This was used previously as a list for the user but was scrapped 
 const ForYouList = (props) => {
     const loopComp = (comp, digit) => {
         let thumbnails = [];

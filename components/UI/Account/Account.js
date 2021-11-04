@@ -4,33 +4,29 @@ import ls from "local-storage";
 import { useEffect } from "react";
 import Image from "next/dist/client/image";
 import { useRouter } from "next/router";
-//This is the Account Component that will display some info to the user
 
+//This is the Account Component that will display The users movie/show list Change the colour themed 
+
+//The Account Component 
 const Account = (props) => {
-  let storage = ls("users");
-  const logOut = () => {
-    remove = storage.map((item) => item.name);
-    return remove.shift();
-  };
-  //Variable used for some of the Reach Hooks
-  const globalState = useStateContext();
-  const router = useRouter();
 
-  useEffect(() => {
-    if (globalState.accountModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [globalState.accountModalOpen]);
+  let storage = ls("users");          
+
+
+  //Variable used for some of the Reach Hooks
+  const globalState = useStateContext();   //Used for the state of the component 
+  const router = useRouter();              //Used to change the route of the link/page 
 
   //Closes The Account section when on new page
   const watchMedia = (url) => {
-    router.push(url);
+    router.push(url);                      //Redirect the page to the selected users movie 
     globalState.setAccountModalOpenAction(!globalState.accountModalOpen);
   };
 
+  //Function to show the users Watch List 
   const showWatchList = () => {
+
+    //Displays the selected Movie Poster for the user watch list 
     return globalState.watchList.map((item, index) => {
       return (
         <div className="account_watch_video" key={index}>
@@ -58,12 +54,15 @@ const Account = (props) => {
     });
   };
 
+  //Function for the sign out  button
   const signOut = () => {
-    ls.remove("activeUID");
-    ls.remove('activeUName');
-    ls.remove('myList');
-    router.push("login");
+    ls.remove("activeUID");       //Removes the current users ID from local storage
+    ls.remove('activeUName');     //Removes the current users Name  from local storage
+    ls.remove('myList');          //Removes the current users list from local storage
+    router.push("login");         //redirects the user to the login page
   };
+
+  //Return for the Account component 
   return (
     <div
       className={`account ${
@@ -117,9 +116,23 @@ const Account = (props) => {
                     "linear-gradient(133deg, rgba(2,0,36,1) 0%, rgba(36,4,74,1) 0%, rgba(77,9,121,1) 49%, rgba(164,139,38,1) 100%)"
                   );
                 }}
+                
                 style={{
                   background:
                     "linear-gradient(133deg, rgba(2,0,36,1) 0%, rgba(36,4,74,1) 0%, rgba(77,9,121,1) 49%, rgba(164,139,38,1) 100%)",
+                }}
+              />
+                       <div
+                className="create-user_color"
+                onClick={() => {
+                  globalState.setChangeBackground(
+                    "linear-gradient(90deg, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0))"
+                  );
+                }}
+                
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0))",
                 }}
               />
               <div

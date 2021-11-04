@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { shuffleArray } from "../../Utilities";
 
+//Placeholder Component for Displaying the size and title of the Media 
 const Placeholder = (props) => {
-  const [loadingData, setLoadingData] = useState(true);
-  const [movies, setMoviesData] = useState([]);
+  const [loadingData, setLoadingData] = useState(true);   //Hook for data loading display 
+  const [movies, setMoviesData] = useState([]);     //Used to set and store the movie data in an empty array
+  
 
 
 

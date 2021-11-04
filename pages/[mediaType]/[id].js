@@ -11,6 +11,7 @@ import LazyLoad from "react-lazyload";
 import Placeholder from "../../components/UI/Placeholder/Placeholder";
 import AuthCheck from "../../components/UI/AuthCheck";
 
+//Individual media Page component 
 export default function SingleMediaPage(props) {
 
   const router = useRouter(); //use to get the route of the page using a hook

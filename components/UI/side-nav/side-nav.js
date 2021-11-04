@@ -1,7 +1,9 @@
 import { useStateContext } from "../HBOProvider";
 import Link from "next/dist/client/link";
+
+//Side navigation Component 
 const SideNav = (props) => {
-  const globalState = useStateContext();
+  const globalState = useStateContext();      //set the state of the component 
   return (
     <div
       className={`side-nav ${globalState.sideNavOpen ? "side-nav-active" : ""}`}

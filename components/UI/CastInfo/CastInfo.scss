@@ -4,33 +4,87 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   &_cast {
-position: inherit;
+  position: inherit;
   }
   &_movieCrew {
     position: inherit;
   }
-  &_group-title {
-    font-size: 1.7rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    &:nth-child(1) {
-      margin-top: 0;
+  &_review{
+    &_group-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+    }
+    &_list {
+      font-size: 1.2rem;
+    }
+    &_crew {
+      display: flow-root;
+      margin-bottom: 1rem;
+      li:nth-child(1) {
+        margin-right: 100px;
+        color: rgb(153, 153, 153);
+        width: 200px;
+      }
+      li:nth-child(2) {
+        color: rgb(200, 200, 200);
+      }
     }
   }
-  &_list {
-    font-size: 1.2rem;
-  }
-  &_crew {
-    display: flow-root;
-    margin-bottom: 1rem;
-    li:nth-child(1) {
-      margin-right: 100px;
-      color: rgb(153, 153, 153);
-      width: 200px;
+
+}
+
+@media only screen and(max-width: 600px){
+
+  .cast-info{
+    min-width: 100%;
+    width: 100%;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+    &_cast{
+      width: 100%;
+      grid-column: 1/2;
+      grid-row: 1/2;
     }
-    li:nth-child(2) {
-      color: rgb(200, 200, 200);
+    &_movieCrew{
+      width: 100%;
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    &_review{
+      width: 100%;
+      grid-column: 1/2;
+      grid-row: 3/4;
+      &_group-title {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        &:nth-child(1) {
+          margin-top: 0;
+        }
+      }
+      &_list {
+        font-size: 1.2rem;
+      }
+      &_crew {
+        display: flow-root;
+        margin-bottom: 1rem;
+        li:nth-child(1) {
+          margin-right: 100px;
+          color: rgb(153, 153, 153);
+          width: 200px;
+        }
+        li:nth-child(2) {
+          color: rgb(200, 200, 200);
+        }
+      }
     }
   }
 }

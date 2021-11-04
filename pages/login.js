@@ -7,6 +7,7 @@ import Router from 'next/dist/next-server/server/router';
 import { useRouter } from 'next/router';
 import Login from '../components/UI/Login/Login';
 
+//Login Page Component 
 const LoginPage = ()=> {
 return(
     <Login/>

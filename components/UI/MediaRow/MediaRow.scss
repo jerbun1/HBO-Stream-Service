@@ -156,3 +156,19 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px){
+  .media-row{
+    &_thumbnails {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      width: calc(100vw-70px);
+      min-width: 100%;
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

@@ -4,17 +4,19 @@ import axios from "axios";
 import { shuffleArray } from "../../Utilities";
 import Link from 'next/link'
 
+//The MediaRow Component 
 const MediaRow = (props) => {
-  const [loadingData, setLoadingData] = useState(true);
-  const [movies, setMoviesData] = useState([]);
+  const [loadingData, setLoadingData] = useState(true); //Hook for data loading display 
+  const [movies, setMoviesData] = useState([]);         //Used to set and store the movie data in an empty array
 
+  //API calling to get the data 
   useEffect(() => {
     axios
       .get(
         `https://api.themoviedb.org/3/${props.endpoint}&api_key=1cf7f7e617b87f5547cd6011c423719d&language=en-US`
       )
       .then((res) => {
-        setMoviesData(shuffleArray(res.data.results));
+        setMoviesData(shuffleArray(res.data.results));    //Hook to set and store the data of the media
         //Handles successful response
         setLoadingData(false);
         console.log("good response for " + props.title);
@@ -24,17 +26,21 @@ const MediaRow = (props) => {
         //Handles an error
         console.log("error response for " + props.title);
       });
-  }, [props.updateData]);
+  }, [props.updateData]);//Updates the data once page is reloaded. exe once
 
+  //Component for looping the thumbnails component 
   const loopComp = (comp, digit) => {
+
+    //Array filled with the Skeleton component 
     let thumbnails = [<Skeleton  key={'a'}/>,<Skeleton  key={'b'}/>,<Skeleton  key={'c'}/>,<Skeleton  key={'d'}/>,<Skeleton  key={'e'}/>];
-    // for (let index = 0; index <= digit; index++) {
-    //   thumbnails.push(comp);
-    // }
+    
     return thumbnails;
   };
-  //Should Simulate loading up an image for the thumbnails
+
+  //Component that Should Simulate loading up an image for the thumbnails
   const showThumbNails = (type) => {
+
+    //If data is loading show the skeleton if not show the data/movies.
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : movies.map((movie) => {
@@ -54,6 +60,7 @@ const MediaRow = (props) => {
   );
 };
 
+//Thumbnail Component 
 const Thumbnail = (props) => {
   const thumbSize= (type) =>{
     if(type == 'large-v'){
@@ -66,7 +73,7 @@ const Thumbnail = (props) => {
       return '185';
     }
   }
-    
+    //Return of the MediaRow Component 
   return (
     <Link href={`/${props.mediaType === 'movie' ? 'movie' : 'tv' }/${props.movieData.id}`}>
     <a>
@@ -89,6 +96,7 @@ const Thumbnail = (props) => {
   );
 };
 
+//Skeleton Component for displaying the loading data 
 const Skeleton = (props) => {
   return (
     <div className="media-row_thumbnail-skeleton" key={props}>
@@ -96,4 +104,6 @@ const Skeleton = (props) => {
     </div>
   );
 };
+
+//Export the MediaRow Component 
 export default MediaRow;

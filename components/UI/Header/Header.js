@@ -7,10 +7,12 @@ import Link from "next/link";
 import AuthCheck from "../AuthCheck";
 import create from '../../../pages/create'
 import ls from 'local-storage'
+
+//The header Component 
 const Header = (props) => {
-  const globalState = useStateContext();
-  let storage = ls('users');
-  let user = ls('activeUName');
+  const globalState = useStateContext(); //Used for the state of the component 
+  let storage = ls('users');             //Used for storage of users info
+  let user = ls('activeUName');           //Used for the active users Name 
   console.log(storage)
   console.log(user)
  console.log(globalState)

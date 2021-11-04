@@ -1,9 +1,8 @@
 
 import Header from '../UI/Header/Header'
 import { useStateContext } from '../UI/HBOProvider'
-//This is the main layout of a index page that will display whatever is in the component
-// 'linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)', minHeight: '100vh', backgroundAttachment: 'fixed'
-// 'linear-gradient(135deg, rgba(0,0,0,1) 55%, rgba(119,30,135,1) 100%)'
+//This is the main layout for the Index, Create and Login pages that will display whatever is in the component
+
 const MainLayout = (props) => {
   const globalState = useStateContext();
 

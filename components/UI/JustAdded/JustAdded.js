@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+//This was a component used to show just added media but was scrapped and changed to something different
 const JustAdded = (props) => {
     const loopComp = (comp, digit) => {
         let thumbnails = [];
