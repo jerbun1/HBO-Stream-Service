@@ -63,5 +63,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        &_user-name{
+            padding-left: 20px;
+        }
     }
 }

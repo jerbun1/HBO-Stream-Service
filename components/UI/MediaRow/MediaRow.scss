@@ -1,5 +1,7 @@
 .media-row {
   padding: 20px 0 20px 50px;
+  overflow-x:visible;
+    
   &_title {
     font-weight: 500;
     color: white;
@@ -9,9 +11,10 @@
   &_thumbnails {
     display: flex;
     flex-wrap: nowrap;
-    width: calc(100vw-70px);
+    width: 100vw;
     min-width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -160,15 +163,34 @@
 @media only screen and (max-width: 600px){
   .media-row{
     &_thumbnails {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      width: calc(100vw-70px);
-      min-width: 100%;
-      overflow-x: scroll;
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      display: flex;
+    flex-wrap: nowrap;
+    width: calc(100vw-70px);
+    min-width: 100%;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    }
+    &_title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
+// @media only screen and (min-width:400px){
+//   .media-row{
+//     &_thumbnails {
+//       display: grid;
+//       grid-template-columns: 1fr;
+//       grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+//       width: calc(100vw-70px);
+//       min-width: 100%;
+//       overflow-x: scroll;
+//       &::-webkit-scrollbar {
+//         display: none;
+//       }
+//     }
+//   }
+// }

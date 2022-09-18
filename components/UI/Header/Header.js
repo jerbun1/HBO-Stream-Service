@@ -57,8 +57,8 @@ const Header = (props) => {
           alt=""
           className="top-header_user-img"
           src={require("/public/img/UiFace.jpg").default}
-          width={70}
-          height={70}
+          width={50}
+          height={50}
           border="3px solid rgb(230, 209, 250)"
           style={{background: '3px solid rgb(132, 0, 255)'}}
         />
